@@ -1,24 +1,3 @@
-# Overview
-
-This is an example of a llama-2 configuration for 7b and 13b. The yaml file contains configuration for the 7b variant, but you can just aswell use the same settings for 13b.
-
-The 7b variant fits on any 24GB VRAM GPU and will take up about 17 GB of VRAM during training if using qlora and 20 GB if using lora. On a RTX 4090 it trains 3 epochs of the default dataset in about 15 minutes.
-
-The 13b variant will fit if you change these settings to these values:
-gradient_accumulation_steps: 2
-micro_batch_size: 1
-
-```shell
-accelerate launch -m axolotl.cli.train examples/llama-2/qlora.yml
-```
-or
-
-```shell
-accelerate launch -m axolotl.cli.train examples/llama-2/lora.yml
-```
-
-To launch a full finetuning with 16-bit precision:
-
-```shell
-accelerate launch -m axolotl.cli.train examples/llama-2/fft_optimized.yml
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:6962d93dd6996f1b7362df417fe6116c77ba3fd0542f4d3a06fa7038286a2e35
+size 823

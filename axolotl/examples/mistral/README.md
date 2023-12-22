@@ -1,12 +1,3 @@
-**Mistral 7B** is a language model with a total of 7.3 billion parameters, showcasing a notable performance across a variety of benchmarks.
-
-Fine Tune:
-```shell
-accelerate launch -m axolotl.cli.train examples/mistral/config.yml
-
-```
-
-If you run into CUDA OOM, use deepspeed with config zero2.json:
-```shell
-accelerate launch -m axolotl.cli.train examples/mistral/config.yml --deepspeed deepspeed/zero2.json
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:16fb8ecbc040b0db9a024a8846ef568cc19e61852bb5771ec9b3132165055035
+size 411

@@ -1,16 +1,3 @@
-# openllama-3b
-
-Basic full tune
-```shell
-accelerate launch scripts/finetune.py examples/openllama-3b/config.yml
-```
-
-LoRA
-```shell
-accelerate launch scripts/finetune.py examples/openllama-3b/lora.yml
-```
-
-QLoRA
-```shell
-accelerate launch scripts/finetune.py examples/openllama-3b/qlora.yml
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:ed48981c92421930c20d95e16ae11fd7c887c8f6bbe4c91b2b816325e25969d8
+size 294
