@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 from threading import Thread
 from typing import Any, Dict, List, Optional, Union
-
+import json
 import gradio as gr
 import torch
 import yaml
@@ -112,19 +112,8 @@ def do_inference(
         )
 
     model = model.to(cfg.device)
-
-    while True:
-        print("=" * 80)
-        # support for multiline inputs
-        instruction = get_multi_line_input()
-        if not instruction:
-            return
-        if prompter_module:
-            prompt: str = next(
-                prompter_module().build_prompt(instruction=instruction.strip("\n"))
-            )
-        else:
-            prompt = instruction.strip()
+    
+    def generate_one(prompt):
         batch = tokenizer(prompt, return_tensors="pt", add_special_tokens=True)
 
         print("=" * 40)
@@ -146,14 +135,31 @@ def do_inference(
                 output_hidden_states=False,
                 output_scores=False,
             )
-            streamer = TextStreamer(tokenizer)
+            # streamer = TextStreamer(tokenizer)
             generated = model.generate(
                 inputs=batch["input_ids"].to(cfg.device),
                 generation_config=generation_config,
-                streamer=streamer,
+                # streamer=streamer,
             )
-        print("=" * 40)
-        print(tokenizer.decode(generated["sequences"].cpu().tolist()[0]))
+        return tokenizer.decode(generated["sequences"].cpu().tolist()[0])
+    
+    generated = []
+    with open('/root/autodl-tmp/LLM-for-HLS/data/processed_sources.jsonl', 'r') as f:
+        for line in f:
+            line = json.loads(line)
+            input_text = line['input']
+            predicted_text = generate_one(input_text)
+            generated.append(
+                {
+                    "input": input_text,
+                    "output": line['output'],
+                    "predicted": predicted_text
+                }
+            )
+    
+    with open('/root/autodl-tmp/LLM-for-HLS/data/demo_data_output.jsonl', 'w') as f:
+        for line in generated:
+            f.write(json.dumps(line) + '\n')
 
 
 def do_inference_gradio(
