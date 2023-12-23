@@ -144,7 +144,7 @@ def do_inference(
         return tokenizer.decode(generated["sequences"].cpu().tolist()[0])
     
     generated = []
-    with open('/root/autodl-tmp/LLM-for-HLS/data/processed_sources.jsonl', 'r') as f:
+    with open('/root/autodl-tmp/LLM-for-HLS/data/processed_sources_test.jsonl', 'r') as f:
         for line in f:
             line = json.loads(line)
             input_text = line['input']
@@ -157,7 +157,7 @@ def do_inference(
                 }
             )
     
-    with open('/root/autodl-tmp/LLM-for-HLS/data/demo_data_output.jsonl', 'w') as f:
+    with open('/root/autodl-tmp/LLM-for-HLS/data/test_output.jsonl', 'w') as f:
         for line in generated:
             f.write(json.dumps(line) + '\n')
 
