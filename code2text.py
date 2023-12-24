@@ -7,9 +7,8 @@ api_key = "sk-XudHwpJ8hdJGuxIC3193E4F1B6Ee416982261bF38d5f5b6d"
 api_base = "https://chatwithai.icu/v1"
 
 client = openai.AsyncOpenAI(api_key=api_key, base_url=api_base)
-base_prompt = "## Task: Give one corresponding instruction that can be used to generate the following HLS codes with " \
-              "#pragma values, you need to focus on describing the #pragma values in natural languages \n"
-
+base_prompt = "## Task: Give one comprehensive but concise natural language instruction used to generate the following HLS codes written in C, you need describe which specific #pragma values to use respectively in natural languages.\n For example, you might use 'Don't automatically pipeline this loop' to describe '#pragma ACCEL PIPELINE \"off\"' , and 'Process this loop in its original, full form without breaking it into smaller chunks' to describe '#pragma ACCEL TILE FACTOR=1', and 'Run the iterations of this loop one after the other, not in parallel' to describe '#pragma ACCEL PARALLEL FACTOR=1', and 'Treat the following function as a hardware kernel for acceleration' to describe '#pragma ACCEL kernel'"
+              
 
 async def get_response(prompt):
     completion = await client.chat.completions.create(
@@ -25,14 +24,14 @@ async def get_response(prompt):
 async def main():
     Task = "Generate HLS code with the following instructions:"
 
-    sources_dir = "data/data/sources"
-    designs_dir = "data/data/designs/v18"
+    sources_dir = "data/sources"
+    designs_dir = "data/designs/v18"
 
     # Get the list of all the files in the sources directory
-    sources_files = os.listdir(sources_dir)[:2] # 暂时先取前两条C语言文件
+    sources_files = os.listdir(sources_dir)[:1] # 暂时先取前两条C语言文件
 
     # Get the list of all the files in the designs directory
-    designs_files = os.listdir(designs_dir)[:2] # 暂时先取前两条C语言文件，之后记得改过来，删掉[:2]
+    designs_files = os.listdir(designs_dir)[:1] # 暂时先取前两条C语言文件，之后记得改过来，删掉[:2]
 
     processed_sources = []
 
@@ -44,7 +43,7 @@ async def main():
             # total_responses.append(response)
 
         # design_name = file.split(".")[0].replace("_kernel", '') + ".json"
-        # design_path = os.path.join("data/data/designs/v18", design_name)
+        # design_path = os.path.join("data/designs/v18", design_name)
         design = json.load(open(design_path, "r"))
         perf_threshold = 1.0
         for key, value in design.items():
@@ -53,7 +52,7 @@ async def main():
             with open(source_path, "r") as f:
                 prompt = f.read()
                 response = await get_response(prompt)
-                print(response)
+                print("\n##" + response)
             base_input = prompt + "------------------\n" + "Design point:\n" + "------------------\n"
             # for k, v in value['point'].items():
             #     base_input = base_input.replace(k, str(v))
@@ -80,14 +79,14 @@ async def main():
     test_size = len(processed_sources) - train_size
     print("Train size: ", train_size)
     print("Test size: ", test_size)
-    with open("data/data/processed_sources_train.jsonl", "w") as f:
+    with open("data/processed_sources_train.jsonl", "w") as f:
         for source in processed_sources[:train_size]:
             f.write(json.dumps(source) + "\n")
 
-    with open("data/data/processed_sources_test.jsonl", "w") as f:
+    with open("data/processed_sources_test.jsonl", "w") as f:
         for source in processed_sources[train_size:]:
             f.write(json.dumps(source) + "\n")
-    with open("data/data/processed_sources.jsonl", "w") as f:
+    with open("data/processed_sources.jsonl", "w") as f:
         for source in processed_sources:
             f.write(json.dumps(source) + "\n")
 
