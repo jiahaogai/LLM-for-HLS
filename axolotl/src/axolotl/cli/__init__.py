@@ -1,6 +1,7 @@
 """Prepare and train a model on a dataset. Can also infer from a model or merge lora"""
 
 import importlib
+import json
 import logging
 import os
 import random
@@ -8,18 +9,13 @@ import sys
 from pathlib import Path
 from threading import Thread
 from typing import Any, Dict, List, Optional, Union
-import json
+
 import gradio as gr
 import torch
 import yaml
-
 # add src to the pythonpath so we don't need to pip install this
 from accelerate.commands.config import config_args
 from art import text2art
-from huggingface_hub import HfApi
-from huggingface_hub.utils import LocalTokenNotFoundError
-from transformers import GenerationConfig, TextIteratorStreamer, TextStreamer
-
 from axolotl.common.cli import TrainerCliArgs, load_model_and_tokenizer
 from axolotl.logging_config import configure_logging
 from axolotl.train import TrainDatasetMeta
@@ -31,6 +27,10 @@ from axolotl.utils.models import load_tokenizer
 from axolotl.utils.tokenization import check_dataset_labels
 from axolotl.utils.trainer import prepare_optim_env
 from axolotl.utils.wandb_ import setup_wandb_env_vars
+from huggingface_hub import HfApi
+from huggingface_hub.utils import LocalTokenNotFoundError
+from tqdm import tqdm
+from transformers import GenerationConfig, TextIteratorStreamer
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 src_dir = os.path.join(project_root, "src")
@@ -83,6 +83,96 @@ def do_merge_lora(
         tokenizer.save_pretrained(str(Path(cfg.output_dir) / "merged"))
 
 
+# def do_inference(
+#     *,
+#     cfg: DictDefault,
+#     cli_args: TrainerCliArgs,
+# ):
+#     model, tokenizer = load_model_and_tokenizer(cfg=cfg, cli_args=cli_args)
+#     prompter = cli_args.prompter
+#     default_tokens = {"unk_token": "<unk>", "bos_token": "<s>", "eos_token": "</s>"}
+#
+#     for token, symbol in default_tokens.items():
+#         # If the token isn't already specified in the config, add it
+#         if not (cfg.special_tokens and token in cfg.special_tokens):
+#             tokenizer.add_special_tokens({token: symbol})
+#
+#     prompter_module = None
+#     if prompter:
+#         prompter_module = getattr(
+#             importlib.import_module("axolotl.prompters"), prompter
+#         )
+#
+#     if cfg.landmark_attention:
+#         from axolotl.monkeypatch.llama_landmark_attn import set_model_mem_id
+#
+#         set_model_mem_id(model, tokenizer)
+#         model.set_mem_cache_args(
+#             max_seq_len=255, mem_freq=50, top_k=5, max_cache_size=None
+#         )
+#
+#     model = model.to(cfg.device)
+#
+#     def generate_one(prompt, pass_num=1):
+#         batch = tokenizer(prompt, return_tensors="pt", add_special_tokens=True)
+#
+#         print("=" * 40)
+#         model.eval()
+#         with torch.no_grad():
+#             generation_config = GenerationConfig(
+#                 repetition_penalty=0.7,
+#                 max_new_tokens=1024,
+#                 temperature=0.9,
+#                 top_p=0.95,
+#                 top_k=40,
+#                 bos_token_id=tokenizer.bos_token_id,
+#                 eos_token_id=tokenizer.eos_token_id,
+#                 pad_token_id=tokenizer.pad_token_id,
+#                 do_sample=True,
+#                 use_cache=True,
+#                 return_dict_in_generate=True,
+#                 output_attentions=False,
+#                 output_hidden_states=False,
+#                 output_scores=False,
+#                 num_beams=4 if pass_num <= 4 else pass_num,
+#                 num_return_sequences=pass_num,
+#             )
+#             # streamer = TextStreamer(tokenizer)
+#             generated = model.generate(
+#                 inputs=batch["input_ids"].to(cfg.device),
+#                 generation_config=generation_config,
+#                 # streamer=streamer,
+#             )
+#         return tokenizer.decode(generated["sequences"].cpu().tolist())
+#
+#     generated = []
+#     with open(cfg.test_dataset_path, 'r') as f:
+#         for line in f:
+#             line = json.loads(line)
+#             input_text = line['input']
+#             predicted_text = generate_one(input_text, pass_num=cfg.pass_num)
+#             predicted_text_dict = {}
+#             for i, text in enumerate(predicted_text):
+#                 predicted_text_dict[i] = text
+#             generated.append(
+#                 {
+#                     "input": input_text,
+#                     "output": line['output'],
+#                     "predicted": predicted_text_dict
+#                 }
+#             )
+#
+#     with open(f'{cfg.predicted_data_dir}/test_output.jsonl', 'w') as f:
+#         for line in generated:
+#             f.write(json.dumps(line) + '\n')
+#
+#     # 将每一个输出的predicted保存为一个个单独的.c文件
+#     for i, line in enumerate(generated):
+#         os.makedirs(f'{cfg.predicted_data_dir}/test_output_{i}', exist_ok=True)
+#         for j, text in line['predicted'].items():
+#             with open(f'{cfg.predicted_data_dir}/test_output_{i}/test_output_{i}_{j}.c', 'w') as f:
+#                 f.write(text)
+#
 def do_inference(
     *,
     cfg: DictDefault,
@@ -112,15 +202,14 @@ def do_inference(
         )
 
     model = model.to(cfg.device)
-    
-    def generate_one(prompt):
-        batch = tokenizer(prompt, return_tensors="pt", add_special_tokens=True)
 
-        print("=" * 40)
+    def generate_batch(prompts, pass_num=1):
+        batch = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, add_special_tokens=True)
+        # print(batch["input_ids"].shape)
         model.eval()
         with torch.no_grad():
             generation_config = GenerationConfig(
-                repetition_penalty=1.1,
+                repetition_penalty=0.7,
                 max_new_tokens=1024,
                 temperature=0.9,
                 top_p=0.95,
@@ -134,32 +223,68 @@ def do_inference(
                 output_attentions=False,
                 output_hidden_states=False,
                 output_scores=False,
+                num_beams=1,
+                num_return_sequences=pass_num,
             )
-            # streamer = TextStreamer(tokenizer)
             generated = model.generate(
                 inputs=batch["input_ids"].to(cfg.device),
+                attention_mask=batch["attention_mask"].to(cfg.device),
                 generation_config=generation_config,
-                # streamer=streamer,
             )
-        return tokenizer.decode(generated["sequences"].cpu().tolist()[0])
-    
+            # print(generated)
+            # print('=' * 40)
+        # for i in range(len(prompts)):
+        #     print(generated["sequences"].shape)
+        #     # print(tokenizer.decode(generated["sequences"][i].cpu().numpy().tolist()))
+        #     # print(len(tokenizer.decode(generated["sequences"][i].cpu().numpy().tolist())))
+        #     # print("=" * 40)
+        #     exit(0)
+        decoded = tokenizer.batch_decode(generated["sequences"].cpu().numpy().tolist(), skip_special_tokens=True)
+        batch_decoded = []
+        for i in range(len(prompts)):
+            batch_decoded.append(decoded[i * pass_num: (i + 1) * pass_num])
+        return batch_decoded
+        # return [[tokenizer.decode(text, skip_special_tokens=True) for text in
+        #          generated["sequences"][i].cpu().numpy().tolist()] for i in range(len(prompts))]
+
+    # Batch processing
     generated = []
-    with open('/root/autodl-tmp/LLM-for-HLS/data/processed_sources_test.jsonl', 'r') as f:
-        for line in f:
+    batch_prompts = []
+    with open(cfg.test_dataset_path, 'r') as f:
+        f = f.readlines()[:2]
+        for line in tqdm(f, total=len(f) // cfg.inference_batch_size, desc="Generating",
+                         disable=(not is_main_process())):
             line = json.loads(line)
-            input_text = line['input']
-            predicted_text = generate_one(input_text)
-            generated.append(
-                {
-                    "input": input_text,
-                    "output": line['output'],
-                    "predicted": predicted_text
-                }
-            )
-    
-    with open('/root/autodl-tmp/LLM-for-HLS/data/test_output.jsonl', 'w') as f:
+            batch_prompts.append(line['input'])
+            if len(batch_prompts) == cfg.inference_batch_size:  # Assuming cfg has a batch_size attribute
+                predicted_texts = generate_batch(batch_prompts, pass_num=cfg.pass_num)
+
+                for input_text, predicted_text in zip(batch_prompts, predicted_texts):
+                    predicted_text_dict = {i: text.replace(input_text, '').replace('</s>', '') for i, text in enumerate(predicted_text)}
+                    # print(predicted_texts)
+                    # print(len(predicted_texts))
+                    # print(len(predicted_texts[0]))
+                    # print(predicted_text_dict)
+                    # exit(0)
+                    generated.append(
+                        {
+                            "input": input_text,
+                            "output": line['output'],
+                            "predicted": predicted_text_dict
+                        }
+                    )
+                batch_prompts = []
+
+    with open(f'{cfg.predicted_data_dir}/test_output.jsonl', 'w') as f:
         for line in generated:
             f.write(json.dumps(line) + '\n')
+
+    # 将每一个输出的predicted保存为一个个单独的.c文件
+    for i, line in enumerate(generated):
+        os.makedirs(f'{cfg.predicted_data_dir}/test_output_{i}', exist_ok=True)
+        for j, text in line['predicted'].items():
+            with open(f'{cfg.predicted_data_dir}/test_output_{i}/test_output_{i}_{j}.c', 'w') as f:
+                f.write(text)
 
 
 def do_inference_gradio(

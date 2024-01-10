@@ -167,6 +167,7 @@ def load_tokenized_prepared_datasets(
         for config_dataset in for_d_in_datasets(cfg.datasets):
             ds: Union[Dataset, DatasetDict] = None
             ds_from_hub = False
+            LOG.info(f"Loading dataset name {config_dataset.path}/ {config_dataset.name}")
             try:
                 load_dataset(
                     config_dataset.path,
