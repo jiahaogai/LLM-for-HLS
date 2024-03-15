@@ -1,0 +1,229 @@
+#pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{3}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L0}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L4}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L5}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L6}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L7}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L8}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L9}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L10}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L11}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L12}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L13}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L14}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L15}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L16}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L17}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L18}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L19}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L20}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L21}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L22}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L23}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L24}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L25}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L26}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L27}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L28}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L29}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L30}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L31}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L32}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L33}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L34}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L35}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L36}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L37}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L38}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L39}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L40}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L41}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L42}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L43}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L44}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L45}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L46}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L47}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L48}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L49}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L50}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L51}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L52}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L53}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L54}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L55}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L56}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L57}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L58}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L59}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L60}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L61}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L62}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L63}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L64}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L65}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L66}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L67}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L68}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L69}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L70}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L71}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L72}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L73}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L74}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L75}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L76}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L77}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L78}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L79}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L80}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L81}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L82}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L83}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L84}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L85}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L86}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L87}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L88}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L89}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L90}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L91}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L92}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L93}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L94}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L95}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L96}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L97}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L98}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L99}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L100}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L101}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L102}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L103}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L104}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L105}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L106}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L107}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L108}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L109}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L110}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{

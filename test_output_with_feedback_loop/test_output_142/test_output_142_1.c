@@ -1,0 +1,3 @@
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}

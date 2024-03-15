@@ -1,0 +1,60 @@
+
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L5} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L5 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L5 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L6} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L6 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L6 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L7} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L7 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L7 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L8} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L8 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L8 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L9} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L9 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L9 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L10} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L10 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L10 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L11} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L11 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L11 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L12} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L12 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L12 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L13} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L13 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L13 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L14} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L14 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L14 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L15} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L15 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L15 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L16} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L16 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L16 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L17} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L17 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L17 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L18} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L18 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L18 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L19} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L19 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L19 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L20} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L20 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L20 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L21} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L21 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L21 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L22} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L22 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L22 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L23} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L23 to break the loop into smaller chunks and specify a tile identifier.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L23 to run the iterations of the loop in parallel with the specified factor.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L24} to pipeline the loop with a specific pipeline identifier.
+- Use #pragma ACCEL TILE FACTOR=__TI

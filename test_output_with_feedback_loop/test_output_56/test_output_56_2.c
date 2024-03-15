@@ -1,0 +1,95 @@
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L4__L3 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L4} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L4 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L5__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L5} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L5 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L6__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L6} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L6 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L7__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L7} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L7 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L8__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L8} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L8 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L9__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L9} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L9 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L10__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L10} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L10 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L11__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L11} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L11 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L12__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L12} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L12 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L13__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L13} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L13 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L14__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L14} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L14 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L15__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L15} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L15 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L16__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L16} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L16 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L17__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L17} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L17 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L18__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L18} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L18 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L19__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L19} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L19 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L20__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L20} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L20 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L21__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L21} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L21 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L22__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L22} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L22 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L23__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L23} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L23 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L24__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L24} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L24 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L25__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L25} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L25 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L26__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L26} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L26 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L27__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L27} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L27 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L28__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L28} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L28 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L29__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L29} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L29 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L30__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L30} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L30 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L31__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L31} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L31 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L32__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L32} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L32 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L33__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L33} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L33 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L34__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE auto{__PIPE__L34} to pipeline the loops within this layer.
+- Use #pragma ACCEL TILE FACTOR=__TILE__L34 to set the tile factors.
+- Use #pragma ACCEL PARALLEL FACTOR=__PARA__L35__L4 to parallelize the loops within the outer loop of this layer.
+- Use #pragma ACCEL PIPELINE

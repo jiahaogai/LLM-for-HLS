@@ -17,6 +17,7 @@ async def check_c_file_syntax_async(file_path):
 
 async def main():
     folder_path = "/root/autodl-tmp/LLM-for-HLS/test_output"  # './outputs'
+    # folder_path = "/root/autodl-tmp/LLM-for-HLS/test_output_with_feedback_loop"
     pass_num = len([1 for file in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, file))])
     print(f"Pass num: {pass_num}")
     c_file_dirs = [file_dir for file_dir in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, file_dir)) and
