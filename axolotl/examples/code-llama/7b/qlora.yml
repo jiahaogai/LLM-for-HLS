@@ -39,8 +39,8 @@ wandb_name:
 wandb_log_model:
 
 gradient_accumulation_steps: 4
-micro_batch_size: 4
-inference_batch_size: 2
+micro_batch_size: 10
+inference_batch_size: 1
 num_epochs: 4
 optimizer: paged_adamw_32bit
 lr_scheduler: cosine

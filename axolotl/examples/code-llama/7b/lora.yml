@@ -8,11 +8,15 @@ load_in_4bit: false
 strict: false
 
 datasets:
-  - path: mhenrichsen/alpaca_2k_test
+  - path: /root/autodl-tmp/LLM-for-HLS/data
     type: alpaca
-dataset_prepared_path:
-val_set_size: 0.05
-output_dir: ./lora-out
+    name: ["processed_sources_train_c.jsonl", "processed_sources_test_c.jsonl"]
+dataset_prepared_path: /root/autodl-tmp/LLM-for-HLS/last_run_prepared
+val_set_size: 0.2
+output_dir: ./qlora-out
+test_dataset_path: /root/autodl-tmp/LLM-for-HLS/data/processed_sources_test_c.jsonl
+pass_num: 5
+predicted_data_dir: /root/autodl-tmp/LLM-for-HLS/test_output
 
 sequence_len: 4096
 sample_packing: true
@@ -33,9 +37,10 @@ wandb_name:
 wandb_log_model:
 
 gradient_accumulation_steps: 4
-micro_batch_size: 2
+micro_batch_size: 10
+inference_batch_size: 2
 num_epochs: 4
-optimizer: adamw_bnb_8bit
+optimizer: paged_adamw_32bit
 lr_scheduler: cosine
 learning_rate: 0.0002
 
@@ -54,8 +59,8 @@ xformers_attention:
 flash_attention: true
 
 warmup_steps: 10
-evals_per_epoch: 4
-saves_per_epoch: 1
+evals_per_epoch: 1
+saves_per_epoch: 2
 debug:
 deepspeed:
 weight_decay: 0.0

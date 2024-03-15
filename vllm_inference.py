@@ -5,12 +5,12 @@ from tqdm import tqdm
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
-if os.path.exists("/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"):
-    print("find merged model")
-else:
-    print("not find merged model")
-    os.system(
-        "python3 -m axolotl.cli.merge_lora axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='/root/autodl-tmp/LLM-for-HLS/axolotl/qlora-out'")
+# if os.path.exists("/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"):
+#     print("find merged model")
+# else:
+#     print("not find merged model")
+#     os.system(
+#         "python3 -m axolotl.cli.merge_lora axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='/root/autodl-tmp/LLM-for-HLS/axolotl/qlora-out'")
 
 from vllm import LLM
 from vllm.sampling_params import SamplingParams
@@ -40,7 +40,9 @@ generate_params = SamplingParams(
 bs = args['inference_batch_size']
 
 tensor_parallel_size = torch.cuda.device_count()
-llm = LLM("/root/autodl-tmp/LLM-for-HLS/qlora-out/merged", tensor_parallel_size=1, gpu_memory_utilization=1)
+# model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
+model_path = "/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"
+llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1)
 
 
 def generate_batch(prompts):
@@ -60,6 +62,7 @@ generated = []
 batch_prompts = []
 
 with open(args['test_dataset_path'], 'r') as f:
+    # f = f.readlines()[:20]
     f = f.readlines()[:200]
     for line in tqdm(f, total=len(f) // bs, desc="Generating"):
         line = json.loads(line)

@@ -11,16 +11,15 @@ from vllm.sampling_params import SamplingParams
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
-# Check if the merged model exists
 # if os.path.exists("/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"):
-#     print("Merged model found")
+#     print("find merged model")
 # else:
-#     print("Merged model not found")
+#     print("not find merged model")
 #     os.system(
 #         "python3 -m axolotl.cli.merge_lora axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='/root/autodl-tmp/LLM-for-HLS/axolotl/qlora-out'")
 
 tensor_parallel_size = torch.cuda.device_count()
-# Path to the model
+# model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
 model_path = "/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"
 llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1)
 
@@ -38,12 +37,12 @@ def check_c_file_syntax(file_path):
         return False, stderr.decode()
     else:
         return True, "No syntax errors found."
-    # True if no syntax errors
+    # return process.returncode == 0  # True if no syntax errors
 
 
 def find_c_code(text):
     """
-    Check if there is C code in the text
+    从text中检查是否存在C代码
     :param text:
     :return: True/False
     """
@@ -75,25 +74,30 @@ def infer_with_syntax_check(args, generate_params, data):
             batch_predicted_texts = generate_batch(batch_prompts, generate_params)
 
             for input_text, predicted_texts in zip(batch_prompts, batch_predicted_texts):
-                # Dictionary for predicted texts
+                # predicted_text_dict = {i: text.replace(input_text, '').replace('</s>', '').strip() for i, text in
+                #                        enumerate(predicted_texts)}
                 predicted_text_dict = {}
-                # Perform syntax check
+                # 执行语法检查
                 for i, predicted_text in enumerate(predicted_texts):
 
-                    # Remove content before the first '#'
+
+
+                    # 去除第一个#之前的内容
                     predicted_text = predicted_text.replace(input_text, '').replace('</s>', '').strip()
-                    # Find the index of the first '#'
+                    # index = predicted_text.find('#')
                     predicted_text = predicted_text[predicted_text.find('#'):]
 
-                    # Write the predicted text to a temporary file
+                    # 将预测的文本写入临时文件
                     with open(f'/root/autodl-tmp/LLM-for-HLS/tmp.c', 'w') as f:
                         f.write(predicted_text)
 
                     flag, message = check_c_file_syntax(f'/root/autodl-tmp/LLM-for-HLS/tmp.c')
                     if not flag:
-                        # Add error information to the prompt for re-inference
+                        # 在prompt中加入错误信息, 再次进行推理
+                        # input_text += f"/* {message} */"
                         if find_c_code(predicted_text):
-                            # If C code is detected in the prediction, add error information
+                            # 如果检测到预测结果中存在C代码，就加入错误信息
+                            # 如果没有检测到，那么就重新生成
                             input_text = "The following code is the result of prompt: " + input_text + "\nCode: " + predicted_text + "\nError: " + message + \
                                          "\nPlease check the code and try again."
                         else:
@@ -102,7 +106,7 @@ def infer_with_syntax_check(args, generate_params, data):
                         generate_params.n = 1
                         re_predicted_texts = generate_batch([input_text], generate_params)
                         generate_params.n = ori_n
-                        # Update predicted_text_dict
+                        # 更新predicted_text_dict
                         predicted_text = re_predicted_texts[0][0].replace(input_text, '').replace('</s>', '').strip()
                     predicted_text_dict[i] = predicted_text
 
@@ -117,7 +121,7 @@ def infer_with_syntax_check(args, generate_params, data):
 
     predicted_data_dir = args['predicted_data_dir']
     predicted_data_dir += f"_with_feedback_loop"
-    # Clear the predicted_data_dir directory
+    # 清空predicted_data_dir目录
     os.system(f"rm -rf {predicted_data_dir}")
     os.makedirs(predicted_data_dir, exist_ok=True)
 
@@ -125,7 +129,7 @@ def infer_with_syntax_check(args, generate_params, data):
         for line in generated:
             f.write(json.dumps(line) + '\n')
 
-    # Save each output's predicted as a separate .c file
+    # 将每一个输出的predicted保存为一个个单独的.c文件
     for i, line in enumerate(generated):
         os.makedirs(f'{predicted_data_dir}/test_output_{i}', exist_ok=True)
         for j, text in line['predicted'].items():
@@ -134,26 +138,25 @@ def infer_with_syntax_check(args, generate_params, data):
 
 
 def main():
-    # Open the YAML file
+    # 打开YAML文件
     with open('/root/autodl-tmp/LLM-for-HLS/axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
-        # Load the YAML content
+        # 加载YAML内容
         args = yaml.safe_load(file)
     args['pass_num'] = 3
     generate_params = SamplingParams(
-        n=args['pass_num'],  # Number of samples to generate
-        temperature=0.7,  # Sampling temperature
-        use_beam_search=False,  # Use beam search instead of top-k sampling
-        early_stopping=False,  # Stop sampling when all sequences finished
-        max_tokens=4096 - 1024,  # Maximum number of tokens to generate
-        skip_special_tokens=True,  # Skip special tokens like <PAD>, <BOS>, etc.
-        top_k=20,  # Top-k sampling
-        top_p=0.9,  # Top-p sampling
+        n=args['pass_num'],  # number of samples to generate
+        temperature=0.7,  # sampling temperature
+        use_beam_search=False,  # use beam search instead of top-k sampling
+        early_stopping=False,  # stop sampling when all sequences finished
+        max_tokens=4096 - 1024,  # maximum number of tokens to generate
+        skip_special_tokens=True,  # skip special tokens like <PAD>, <BOS>, etc.
+        top_k=20,  # top-k sampling
+        top_p=0.9,  # top-p sampling
 
     )
     args['inference_batch_size'] = 1
     with open(args['test_dataset_path'], 'r') as f:
-        data = f.readlines()[:200]
-        # data = f.readlines()
+        data = f.readlines()[:20]
 
     infer_with_syntax_check(args, generate_params, data)
 

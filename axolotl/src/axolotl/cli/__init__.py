@@ -251,7 +251,7 @@ def do_inference(
     generated = []
     batch_prompts = []
     with open(cfg.test_dataset_path, 'r') as f:
-        f = f.readlines()[:2]
+        f = f.readlines()#[:2]
         for line in tqdm(f, total=len(f) // cfg.inference_batch_size, desc="Generating",
                          disable=(not is_main_process())):
             line = json.loads(line)
