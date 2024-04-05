@@ -1,7 +1,6 @@
 import os
 
 import torch
-from tqdm import tqdm
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
@@ -27,60 +26,122 @@ with open('/root/autodl-tmp/LLM-for-HLS/axolotl/examples/code-llama/7b/qlora.yml
 # exit(0)
 generate_params = SamplingParams(
     n=args['pass_num'],  # number of samples to generate
-    temperature=0.7,  # sampling temperature
-    use_beam_search=False,  # use beam search instead of top-k sampling
-    early_stopping=False,  # stop sampling when all sequences finished
-    max_tokens=2048,  # maximum number of tokens to generate
+    temperature=0,  # sampling temperature 0.7
+    use_beam_search=True,  # use beam search instead of top-k sampling
+    early_stopping=True,  # stop sampling when all sequences finished
+    max_tokens=1024,  # maximum number of tokens to generate
     skip_special_tokens=True,  # skip special tokens like <PAD>, <BOS>, etc.
-    top_k=20,  # top-k sampling
-    top_p=0.9,  # top-p sampling
+    top_k=-1,  # top-k sampling 20
+    top_p=1,  # top-p sampling 0.9
+
 
 )
 
 bs = args['inference_batch_size']
-
+bs = 10
 tensor_parallel_size = torch.cuda.device_count()
 # model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
 model_path = "/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"
-llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1)
+llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1, dtype="float16")
+use_chain_of_thought = True
+chain_of_thought_prompt = """
+Let's think step by step.
+
+First, Consider the characteristics of FPGA.
+Second, Determine the program structure.
+Third, Write code logic.
+Fourth, Consider data types and interfaces.
+
+Finally, Generate code: 
+"""
 
 
 def generate_batch(prompts):
-    outputs = llm.generate(prompts, generate_params)
+    outputs = llm.generate(prompts, generate_params, use_tqdm=True)
 
     processed_outputs = []
     for i in range(len(outputs)):
-        sample_outputs = []
+        sample_outputs = {}
         for j in range(len(outputs[i].outputs)):
-            sample_outputs.append(outputs[i].outputs[j].text)
+            sample_outputs[j] = outputs[i].outputs[j].text.replace('</s>', '')
         processed_outputs.append(sample_outputs)
 
     return processed_outputs
 
 
-generated = []
-batch_prompts = []
+# generated = []
+# batch_prompts = []
 
 with open(args['test_dataset_path'], 'r') as f:
-    # f = f.readlines()[:20]
-    f = f.readlines()[:200]
-    for line in tqdm(f, total=len(f) // bs, desc="Generating"):
-        line = json.loads(line)
-        batch_prompts.append(line['input'])
-        if len(batch_prompts) == bs:
-            predicted_texts = generate_batch(batch_prompts)
+    # f = f.readlines()[:200]
+    if use_chain_of_thought:
+        prompts = [json.loads(line)['input'] + "\n\n" + chain_of_thought_prompt for line in f]
+    else:
+        prompts = [json.loads(line)['input'] for line in f]
+    # 计算总的批次数
+    # total_batches = len(prompts) // bs
+    # print(f"total_batches: {total_batches}")
+    scale_factor = 1/2
+    outputs = []
+    current_idx = 0
+    next_idx = bs
+    while current_idx < len(prompts):
+        try:
+            batch_prompts = prompts[current_idx:next_idx]
+            outputs.extend(generate_batch(batch_prompts))
+            current_idx = next_idx
+            next_idx += bs
+        except Exception as e:
+            torch.cuda.empty_cache()
+            # scale batch size down to 2/3
+            scale_bs = int(bs * scale_factor)
+            print(f"scale batch size from {bs} to {scale_bs}")
+            while scale_bs >= 1:
+                try:
+                    batch_prompts = prompts[current_idx:current_idx + scale_bs]
+                    outputs.extend(generate_batch(batch_prompts))
+                    current_idx += next_idx
+                    next_idx += scale_bs
+                    break
+                except Exception as e:
+                    torch.cuda.empty_cache()
+                    if scale_bs == 1:
+                        raise e
+                    print(f"scale batch size from {scale_bs} to {max(int(scale_bs * scale_factor), 1)}")
+                    scale_bs = max(int(scale_bs * scale_factor), 1)
+    # for i in range(0, len(prompts), bs):
+    #     batch_prompts = prompts[i:i + bs]
+    #     outputs.extend(generate_batch(batch_prompts))
+    generated = []
+    for input_text, output, predicted_dict in zip(prompts, [json.loads(line)['output'] for line in f], outputs):
 
-            for input_text, predicted_text in zip(batch_prompts, predicted_texts):
-                predicted_text_dict = {i: text.replace(input_text, '').replace('</s>', '') for i, text in
-                                       enumerate(predicted_text)}
-                generated.append(
-                    {
-                        "input": input_text,
-                        "output": line['output'],
-                        "predicted": predicted_text_dict
-                    }
-                )
-            batch_prompts = []
+        generated.append(
+            {
+                "input": input_text,
+                "output": output,
+                "predicted": predicted_dict
+            }
+        )
+    # for line in tqdm(f, total=len(f) // bs, desc="Generating"):
+    #     line = json.loads(line)
+    #     prompt = line['input']
+    #     if use_chain_of_thought:
+    #         prompt = prompt + "\n\n" + chain_of_thought_prompt
+    #     batch_prompts.append(prompt)
+    #     if len(batch_prompts) == bs:
+    #         predicted_texts = generate_batch(batch_prompts)
+    #
+    #         for input_text, predicted_text in zip(batch_prompts, predicted_texts):
+    #             predicted_text_dict = {i: text.replace(input_text, '').replace('</s>', '') for i, text in
+    #                                    enumerate(predicted_text)}
+    #             generated.append(
+    #                 {
+    #                     "input": input_text,
+    #                     "output": line['output'],
+    #                     "predicted": predicted_text_dict
+    #                 }
+    #             )
+    #         batch_prompts = []
     # predicted_texts = generate_batch(batch_prompts)
     #
     # for input_text, predicted_text in zip(batch_prompts, predicted_texts):

@@ -1,0 +1,15 @@
+{
+    "test_data": {
+        "key": "f67c98717e2ffc996a418a8909d3be5ddcaaa8499a235f08c8eb9ed6596cbe22",
+        "data_block": "490bc3b0023a97359981c96ac368b13d",
+        "expected_encrypted_data": "ca9fe5de91f7b50be0f216d3c77478c5"
+    },
+    "test_cases": {
+        "cases": [
+            {
+                "description": "Basic functionality test with random key and data block",
+                "expected_result": "Expected encrypted data should match the calculated encrypted data"
+            }
+        ]
+    }
+}
