@@ -10,7 +10,7 @@ api_key = "sk-XudHwpJ8hdJGuxIC3193E4F1B6Ee416982261bF38d5f5b6d"
 api_base = "https://chatwithai.icu/v1"
 
 client = openai.AsyncOpenAI(api_key=api_key, base_url=api_base)
-base_prompt = "## Task: Give one comprehensive but very concise natural language instruction used to generate the following HLS codes written in C, you need describe the process of codes and which specific #pragma values to use respectively in natural languages.\n " \
+base_prompt = "## Task: Give one comprehensive but very concise natural language instruction as a prompt for LLMs, used to generate the following HLS codes written in C, you must include:1.a concise instruction about what to do. 2. the function name with the parameter names. 3. the general process of codes and which specific #pragma values to use respectively in natural languages.\n " \
  \
               "For example, you might use 'Don't automatically pipeline this loop' to describe '#pragma ACCEL PIPELINE \"off\"' , and 'Process this loop in its original, full form without breaking it into smaller chunks' to describe '#pragma ACCEL TILE FACTOR=1', and 'Run the iterations of this loop one after the other, not in parallel' to describe '#pragma ACCEL PARALLEL FACTOR=1', and 'Treat the following function as a hardware kernel for acceleration' to describe '#pragma ACCEL kernel'\n"
 
@@ -23,7 +23,8 @@ base_prompt = "## Task: Give one comprehensive but very concise natural language
 async def get_response(prompt):
     try:
         completion = await client.chat.completions.create(
-            model="gpt-3.5-turbo-1106",
+            # model="gpt-3.5-turbo-1106",
+            model="gpt-4-0613",
             messages=[
                 {"role": "system", "content": "You are a helpful 'HLS code-to-text' generator"},
                 {"role": "user", "content": base_prompt + prompt}
@@ -58,7 +59,7 @@ async def process_file(source_path, semaphore):
 
 
 async def main():
-    sources_dir = "data/sources"
+    sources_dir = "./data/new_data"
     # designs_dir = "data/designs/v18"
     only_c = True  # Only generate C code
     semaphore = 60  # Number of processes to run concurrently
