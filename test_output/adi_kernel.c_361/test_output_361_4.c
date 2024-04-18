@@ -1,0 +1,93 @@
+#pragma ACCEL kernel
+
+void kernel_adi(int tsteps,int n,double u[60][60],double v[60][60],double p[60][60],double q[60][60])
+{
+  int t;
+  int i;
+  int j;
+  double DX;
+  double DY;
+  double DT;
+  double B1;
+  double B2;
+  double mul1;
+  double mul2;
+  double a;
+  double b;
+  double c;
+  double d;
+  
+#pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  loop_tsteps:
+  for (t = 0; t <= 39; t++) {
+    
+#pragma ACCEL PIPELINE auto{__PIPE__L1}
+    
+#pragma ACCEL TILE FACTOR=auto{__TILE__L1}
+    loop_j:
+    for (j = 1; j <= 58; j++) {
+      
+#pragma ACCEL PIPELINE auto{__PIPE__L2}
+      
+#pragma ACCEL TILE FACTOR=auto{__TILE__L2}
+      loop_i:
+      for (i = 1; i <= 58; i++) {
+        DX = (((double )i) - 30.0);
+        DY = (((double )j) - 30.0);
+        mul1 = DY * ((2.0 * v[j][i]) - (2.0 * v[j][i - 1]));
+        mul2 = DX * (p[j][i] - p[j][i - 1]);
+        a = mul1 + mul2;
+        b = mul1 - mul2;
+        c = DX * ((2.0 * u[j][i]) - (2.0 * u[j][i - 1]));
+        d = DY * (q[j][i] - q[j - 1][i]);
+        u[j][i] = a + c;
+        v[j][i] = b + d;
+      }
+    }
+    
+#pragma ACCEL PIPELINE auto{off}
+    
+#pragma ACCEL TILE FACTOR=auto{1}
+    loop_j_1:
+    for (j = 1; j <= 58; j++) {
+      
+#pragma ACCEL PIPELINE auto{__PIPE__L3}
+      
+#pragma ACCEL TILE FACTOR=auto{__TILE__L3}
+      loop_i_1:
+      for (i = 1; i <= 58; i++) {
+        DX = (((double )i) - 30.0);
+        DY = (((double )j) - 30.0);
+        mul1 = DY * ((2.0 * v[j][i]) - (2.0 * v[j][i - 1]));
+        mul2 = DX * (p[j][i] - p[j][i - 1]);
+        a = mul1 + mul2;
+        b = mul1 - mul2;
+        c = DX * ((2.0 * u[j][i]) - (2.0 * u[j][i - 1]));
+        d = DY * (q[j][i] - q[j - 1][i]);
+        p[j][i] = a - d;
+        q[j][i] = b - c;
+      }
+    }
+    DT = 1.0 / 360.0;
+    B1 = 3.0 / 32.0;
+    B2 = 9.0 / 32.0;
+    
+#pragma ACCEL PIPELINE auto{__PIPE__L4}
+    
+#pragma ACCEL TILE FACTOR=auto{__TILE__L4}
+    loop_j_2:
+    for (j = 1; j <= 58; j++) {
+      
+#pragma ACCEL PIPELINE auto{__PIPE__L5}
+      
+#pragma ACCEL TILE FACTOR=auto{__TILE__L5}
+      loop_i_2:
+      for (i = 1; i <= 58; i++) {
+        u[j][i] = ((B1 * (u[j][i] - u[j][i - 1])) + (B2 * (u[j][i + 1] - u[j][i])));
+        v[j][i] = ((B1 * (v[j][i] - v[j - 1][i])) + (B2 * (v[j + 1][i] - v[j][i])));
+      }
+    }
+  }
+}

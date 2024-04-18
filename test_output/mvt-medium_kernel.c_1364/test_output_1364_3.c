@@ -1,0 +1,48 @@
+#pragma ACCEL kernel
+
+void kernel_mvt(int n,double A[400][400],double x1[400],double x2[400],double y_1[400],double y_2[400])
+{
+  int i;
+  int j;
+  
+#pragma ACCEL PIPELINE auto{flatten}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+  for (i = 0; i < 400; i++) {
+    x1[i] = ((double )0);
+    y_1[i] = 0.0;
+  }
+  
+#pragma ACCEL PIPELINE auto{}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+  for (i = 0; i < 400; i++) {
+    int j_col;
+    
+#pragma ACCEL PARALLEL reduction=x1 FACTOR=auto{1}
+    for (j = 0; j < 400; j++) {
+      j_col = j;
+      x1[i] += A[i][j] * x2[j_col];
+    }
+    y_1[i] = x1[i];
+  }
+  
+#pragma ACCEL PIPELINE auto{__PIPE__L2}
+  
+#pragma ACCEL TILE FACTOR=auto{__TILE__L2}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{8}
+  for (i = 0; i < 400; i++) {
+    int j_row;
+    
+#pragma ACCEL PARALLEL reduction=y_2 FACTOR=auto{__PARA__L5}
+    for (j = 0; j < 400; j++) {
+      j_row = j;
+      y_2[i] += A[j_row][i] * y_1[j];
+    }
+  }
+}
