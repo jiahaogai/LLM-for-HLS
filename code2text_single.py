@@ -10,9 +10,7 @@ api_key = "sk-XudHwpJ8hdJGuxIC3193E4F1B6Ee416982261bF38d5f5b6d"
 api_base = "https://chatwithai.icu/v1"
 
 client = openai.AsyncOpenAI(api_key=api_key, base_url=api_base)
-base_prompt = "## Task: Give one comprehensive but very concise natural language instruction as a prompt for LLMs, used to generate the following HLS codes written in C, you must include:1.a concise instruction about what to do. 2. the function name with the parameter names. 3. the general process of codes and which specific #pragma values to use respectively in natural languages.\n " \
- \
-              "For example, you might use 'Don't automatically pipeline this loop' to describe '#pragma ACCEL PIPELINE \"off\"' , and 'Process this loop in its original, full form without breaking it into smaller chunks' to describe '#pragma ACCEL TILE FACTOR=1', and 'Run the iterations of this loop one after the other, not in parallel' to describe '#pragma ACCEL PARALLEL FACTOR=1', and 'Treat the following function as a hardware kernel for acceleration' to describe '#pragma ACCEL kernel'\n"
+base_prompt = "## Task: Create a detailed, yet succinct, natural language instruction for generating the provided HLS (High-Level Synthesis) code snippets written in C. Your instruction should clearly include: the specific function header (the names and types of both the function and parameters), a brief description of the code's overall process, and the appropriate #pragma directives translated into natural language explanations. For instance, translate '#pragma ACCEL PIPELINE \"off\"' as 'Do not automatically pipeline this loop.' Similarly, interpret '#pragma ACCEL TILE FACTOR=1' as 'Keep this loop whole, without dividing it into smaller parts,' '#pragma ACCEL PARALLEL FACTOR=1' as 'Execute loop iterations sequentially, not concurrently,' and '#pragma ACCEL kernel' as 'Designate the following function for hardware acceleration.'"
 
 
 # base_prompt = "## Task: Give one comprehensive but very concise and not too detailed natural language instruction used to generate the following HLS codes written in C, you need describe the process of codes and which specific #pragma values to use respectively in natural languages.\n " \
@@ -37,6 +35,9 @@ async def get_response(prompt):
 
 
 async def process_file(source_path, semaphore):
+    # print(source_path)
+    # exit()
+    source_file = source_path.split("/")[-1]
     async with semaphore:
         try:
             async with aiofiles.open(source_path, "r") as f:
@@ -51,7 +52,8 @@ async def process_file(source_path, semaphore):
                 return {
                     "instruction": "Generate HLS code with the following instructions:",
                     "input": response,
-                    "output": prompt
+                    "output": prompt,
+                    "source_file": source_file
                 }
         except Exception as e:
             print(f"Error in process_file: {e}")
@@ -98,18 +100,20 @@ async def main():
     print("Number of processed sources: ", len(processed_sources))
 
     # Save the processed sources to a file
-    train_size = int(0.8 * len(processed_sources))
-    test_size = len(processed_sources) - train_size
+    train_size = int(len(processed_sources))
+    test_size = 0
+    # train_size = int(0.8 * len(processed_sources))
+    # test_size = len(processed_sources) - train_size
     print("Train size: ", train_size)
     print("Test size: ", test_size)
-    with open("data/processed_sources_train_c_single.jsonl", "w") as f:
+    with open("data/gpt35/processed_sources_train_c_single.jsonl", "w") as f:
         for source in processed_sources[:train_size]:
             f.write(json.dumps(source) + "\n")
 
-    with open("data/processed_sources_test_c_single.jsonl", "w") as f:
+    with open("data/gpt35/processed_sources_test_c_single.jsonl", "w") as f:
         for source in processed_sources[train_size:]:
             f.write(json.dumps(source) + "\n")
-    with open("data/processed_sources_c_single.jsonl", "w") as f:
+    with open("data/gpt35/processed_sources_c_single.jsonl", "w") as f:
         for source in processed_sources:
             f.write(json.dumps(source) + "\n")
 
