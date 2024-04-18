@@ -2,6 +2,7 @@ import copy
 import json
 import os
 import subprocess
+import tempfile
 
 import torch
 import yaml
@@ -23,22 +24,32 @@ tensor_parallel_size = torch.cuda.device_count()
 model_path = "/root/autodl-tmp/LLM/LLM-for-HLS/qlora-out/merged"
 llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1)
 
+def compile_and_run(test_case_file_path, output_file_path):
+    with tempfile.TemporaryDirectory() as temp_dir:
+        # tmp_file_path = os.path.join(temp_dir, "test_fdtd")
+        result = subprocess.run(["gcc", f"-o test_fdtd", test_case_file_path, output_file_path],
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        stdout, stderr = result.stdout, result.stderr
+        # print(f"stdout: {stdout.decode()}")
+        # if stderr:
+        #     print(f"stderr: {stderr.decode()}")
+        return result.returncode == 0, stdout.decode("utf-8")
 
-def check_c_file_syntax(file_path):
-    process = subprocess.Popen(
-        ["gcc", "-fsyntax-only", file_path],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
-    )
-
-    stdout, stderr = process.communicate()
-
-    if process.returncode != 0:
-        return False, stderr.decode()
-    else:
-        return True, "No syntax errors found."
-    # return process.returncode == 0  # True if no syntax errors
-
+# def check_c_file_syntax(file_path):
+#     process = subprocess.Popen(
+#         ["gcc", "-fsyntax-only", file_path],
+#         stdout=subprocess.PIPE,
+#         stderr=subprocess.PIPE
+#     )
+#
+#     stdout, stderr = process.communicate()
+#
+#     if process.returncode != 0:
+#         return False, stderr.decode()
+#     else:
+#         return True, "No syntax errors found."
+#     # return process.returncode == 0  # True if no syntax errors
+#
 
 def find_c_code(text):
     """
@@ -50,7 +61,7 @@ def find_c_code(text):
 
 
 def generate_batch(prompts, vll_generate_params):
-    outputs = llm.generate(prompts, vll_generate_params, use_tqdm=False)
+    outputs = llm.generate(prompts, vll_generate_params, use_tqdm=True)
 
     processed_outputs = []
     for i in range(len(outputs)):
@@ -67,7 +78,7 @@ def infer_with_syntax_check(args, data):
     use_chain_of_thought = args.get('use_chain_of_thought', False)
     chain_of_thought_prompt = args.get('chain_of_thought_prompt', "")
     predicted_data_dir = args['predicted_data_dir']
-    predicted_data_dir += f"_cot_syntax_feedback_loop"
+    predicted_data_dir += f"_cot_functionality_feedback_loop"
     print(f"predicted_data_dir: {predicted_data_dir}")
     # 清空predicted_data_dir目录
     os.system(f"rm -rf {predicted_data_dir}")
@@ -94,15 +105,26 @@ def infer_with_syntax_check(args, data):
         for k, (input_text, output, predicted_dict, source_file) in enumerate(
                 zip(batch_prompts, batch_outputs, generated_batch, batch_source_files)):
 
-            # source_file = line['source_file']
+            source_file = batch_source_files[k]
             for i, predicted_text in predicted_dict.items():
                 # predicted_text = predicted_text.replace(input_text, '').replace('</s>', '').strip()
                 predicted_text = predicted_text[predicted_text.find('#'):]
 
-                with open(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c', 'w') as f:
+                with open('/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c', 'w') as f:
                     f.write(predicted_text)
+                truth_file = "/root/autodl-tmp/LLM/LLM-for-HLS/data/sources/" + source_file
+                # 然后加载测试文件
+                test_case_file = "/root/autodl-tmp/LLM/LLM-for-HLS/functionality_data/" + source_file.split('.c')[0] + "_test.c"
+                assert os.path.exists(test_case_file), f"Test case file {test_case_file} does not exist"
+                # print(test_case_file)
 
-                flag, message = check_c_file_syntax(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
+                # print(test_dir_path)
+                # 先得到正确文件的输出
+                flag, test_output = compile_and_run(test_case_file, truth_file)
+                # print(test_output)
+                assert flag, f"Compilation failed for {test_case_file} and {truth_file}, with {test_output}"
+                flag, message = compile_and_run(test_case_file, '/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
+                # flag, message = check_c_file_syntax(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
                 if not flag:
                     input_text = "The following code is the result of prompt: " + input_text + "\nCode: " + predicted_text + "\nError: " + message + \
                                          "\nPlease check the code and try again."
@@ -110,7 +132,6 @@ def infer_with_syntax_check(args, data):
                     vll_generate_params.max_tokens = 4096 - 1024 - len(input_text)
                     vll_generate_params.n = 1
                     predicted_dict[i] = generate_batch([input_text], vll_generate_params)[0][0]
-                    # predicted_dict[i] = generate_batch([input_text])[0][0]
             line = {
                 "input": input_text,
                 # "output": output,
@@ -122,13 +143,6 @@ def infer_with_syntax_check(args, data):
                 with open(f'{predicted_data_dir}/{line["source_file"]}_{i+k}/test_output_{i+k}_{j}.c', 'w') as w:
                     w.write(text)
 
-        # 清除不必要的变量
-        del generated_batch
-        del batch_prompts
-        del batch_outputs
-        del batch_source_files
-        # 释放显存
-        torch.cuda.empty_cache()
 
 if __name__ == "__main__":
     # 打开YAML文件
