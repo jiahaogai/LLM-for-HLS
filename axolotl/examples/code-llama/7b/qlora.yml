@@ -4,7 +4,7 @@ tokenizer_type: CodeLlamaTokenizer
 is_llama_derived_model: true
 
 load_in_8bit: false
-load_in_4bit: true
+load_in_4bit: false
 strict: false
 
 datasets:
@@ -14,7 +14,7 @@ datasets:
 dataset_prepared_path: /root/autodl-tmp/LLM/LLM-for-HLS/last_run_prepared
 val_set_size: 0.2
 output_dir: ./qlora-out
-test_dataset_path: /root/autodl-tmp/LLM/LLM-for-HLS/data/processed_sources_test_c.jsonl
+test_dataset_path: /root/autodl-tmp/LLM/LLM-for-HLS/data/gpt35/processed_sources_test_c.jsonl
 pass_num: 5
 predicted_data_dir: /root/autodl-tmp/LLM/LLM-for-HLS/test_output
 
