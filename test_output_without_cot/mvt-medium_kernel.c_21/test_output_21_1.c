@@ -1,0 +1,3 @@
+- #pragma ACCEL TILE FACTOR=auto{1}: Keep the following loop whole, without dividing it into smaller parts, with auto-tuned factor settings.
+- #pragma ACCEL PARALLEL FACTOR=auto{1}: Execute loop iterations sequentially, not concurrently, with auto-tuned factor settings.
+- #pragma ACCEL PARALLEL reduction = x2 FACTOR=auto{2}: Execute loop iterations sequentially, not concurrently, with reduction operation on x2 and auto-tuned factor settings.

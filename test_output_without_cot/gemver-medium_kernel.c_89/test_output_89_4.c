@@ -1,0 +1,1 @@
+ACCEL PIPELINE, ACCEL TILE, and ACCEL PARALLEL directives can be used sequentially or in combination. ACCEL PIPELINE and ACCEL TILE directives are required, while ACCEL PARALLEL is optional.
