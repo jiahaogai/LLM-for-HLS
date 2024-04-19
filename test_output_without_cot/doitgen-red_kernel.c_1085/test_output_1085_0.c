@@ -1,0 +1,1 @@
+5. `#pragma ACCEL PARALLEL FACTOR=auto{30}` - Divide this loop into smaller parts with a factor of 30.

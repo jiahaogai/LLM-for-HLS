@@ -1,0 +1,1 @@
+9. `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Parallelize the outer loop with a factor of 2, executing loop iterations concurrently for improved performance.

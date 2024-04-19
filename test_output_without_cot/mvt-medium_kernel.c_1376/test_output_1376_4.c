@@ -1,0 +1,1 @@
+The optimized kernel is expected to achieve the following performance:

@@ -1,0 +1,1 @@
+8. `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Automatically decide the parallelization factor with a specific value of 1 to execute loop iterations sequentially, not concurrently.

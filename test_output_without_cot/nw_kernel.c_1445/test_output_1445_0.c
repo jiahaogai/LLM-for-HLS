@@ -1,0 +1,63 @@
+- #pragma ACCEL PIPELINE auto{__PIPE__L2}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L2}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L3}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L3}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L4}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L4}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L4}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L5}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L5}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L5}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L6}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L6}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L6}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L7}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L7}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L7}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L8}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L8}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L8}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L9}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L9}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L9}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L10}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L10}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L10}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L11}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L11}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L11}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L12}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L12}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L12}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L13}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L13}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L13}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L14}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L14}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L14}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L15}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L15}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L15}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L16}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L16}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L16}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L17}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L17}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L17}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L18}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L18}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L18}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L19}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L19}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L19}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L20}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L20}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L20}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L21}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L21}: Sets the tile size to 4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L21}: Sets the degree of parallelism to 4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L22}: Sets the pipeline depth to 2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L22}: Sets the tile size to 4.
+- #pragma ACCEL PAR

@@ -1,0 +1,3 @@
+- `#pragma ACC PARALLEL FACTOR=auto{__PARA__L1}`: Executes the outer loop of the dynamic programming in parallel, with a factor of `__PARA__L1` to scale the level of parallelism.
+- `#pragma ACC PARALLEL FACTOR=auto{__PARA__L2}`: Executes the middle loop of the dynamic programming in parallel, with a factor of `__PARA__L2` to scale the level of parallelism.
+- `#pragma ACC PARALLEL FACTOR=auto{__PARA__L3}`: Executes the inner loop of the dynamic programming in parallel, with a factor of `__PARA__L3` to scale the level of parallelism.

@@ -1,0 +1,1 @@
+8. `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Parallelizes the loop to execute loop iterations concurrently, improving performance.

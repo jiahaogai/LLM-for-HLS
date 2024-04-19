@@ -1,0 +1,1 @@
+- #pragma ACCEL PARALLEL FACTOR=auto{16}

@@ -1,0 +1,41 @@
+- #pragma ACCEL PIPELINE auto{__PIPE__L2}: Enable pipeline auto{1} for loop L2.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L2}: Use tile auto{4} for loop L2.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L3.
+- #pragma ACCEL PIPELINE auto{__PIPE__L3}: Enable pipeline auto{__PIPE__L3} for loop L3.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L3}: Use tile auto{__TILE__L3} for loop L3.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L4}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L4.
+- #pragma ACCEL PIPELINE auto{__PIPE__L4}: Enable pipeline auto{__PIPE__L4} for loop L4.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L4}: Use tile auto{__TILE__L4} for loop L4.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L5}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L5.
+- #pragma ACCEL PIPELINE auto{__PIPE__L5}: Enable pipeline auto{__PIPE__L5} for loop L5.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L5}: Use tile auto{__TILE__L5} for loop L5.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L6}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L6.
+- #pragma ACCEL PIPELINE auto{__PIPE__L6}: Enable pipeline auto{__PIPE__L6} for loop L6.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L6}: Use tile auto{__TILE__L6} for loop L6.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L7}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L7.
+- #pragma ACCEL PIPELINE auto{__PIPE__L7}: Enable pipeline auto{__PIPE__L7} for loop L7.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L7}: Use tile auto{__TILE__L7} for loop L7.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L8}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L8.
+- #pragma ACCEL PIPELINE auto{__PIPE__L8}: Enable pipeline auto{__PIPE__L8} for loop L8.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L8}: Use tile auto{__TILE__L8} for loop L8.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L9}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L9.
+- #pragma ACCEL PIPELINE auto{__PIPE__L9}: Enable pipeline auto{__PIPE__L9} for loop L9.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L9}: Use tile auto{__TILE__L9} for loop L9.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L10}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L10.
+- #pragma ACCEL PIPELINE auto{__PIPE__L10}: Enable pipeline auto{__PIPE__L10} for loop L10.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L10}: Use tile auto{__TILE__L10} for loop L10.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L11}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L11.
+- #pragma ACCEL PIPELINE auto{__PIPE__L11}: Enable pipeline auto{__PIPE__L11} for loop L11.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L11}: Use tile auto{__TILE__L11} for loop L11.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L12}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L12.
+- #pragma ACCEL PIPELINE auto{__PIPE__L12}: Enable pipeline auto{__PIPE__L12} for loop L12.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L12}: Use tile auto{__TILE__L12} for loop L12.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L13}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L13.
+- #pragma ACCEL PIPELINE auto{__PIPE__L13}: Enable pipeline auto{__PIPE__L13} for loop L13.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L13}: Use tile auto{__TILE__L13} for loop L13.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L14}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L14.
+- #pragma ACCEL PIPELINE auto{__PIPE__L14}: Enable pipeline auto{__PIPE__L14} for loop L14.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L14}: Use tile auto{__TILE__L14} for loop L14.
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L15}: Execute loop iterations concurrently, with a parallel factor automatically determined as __PARA__L15.
+- #pragma ACCEL PIPELINE auto{__PIPE__L15}: Enable pipeline auto{__PIPE__L15} for loop L15.
+- #pragma ACCEL TILE FACTOR=auto{__TILE__L15}: Use tile auto{__TILE__L15} for loop L15.

@@ -1,0 +1,3 @@
+- '#pragma ACCEL TILE FACTOR=auto{1}': Tile the loop with a factor of 1.
+- '#pragma ACCEL PARALLEL FACTOR=auto{30}': Execute loop iterations in parallel with a factor of 30.
+- '#pragma ACCEL PARALLEL FACTOR=auto{1}': Execute loop iterations in parallel with a factor of 1.

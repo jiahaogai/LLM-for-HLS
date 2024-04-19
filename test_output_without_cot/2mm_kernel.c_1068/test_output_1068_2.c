@@ -1,0 +1,2 @@
+6. Inside the third nested loop (i.e., `for (j = 0; j < 50; j++)`):
+    - `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Execute loop iterations concurrently with a parallel factor of 8 for efficient resource utilization.

@@ -1,0 +1,27 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L1}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L1}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L1}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L2}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L2}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L3}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L3}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L4}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L4}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L4}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L5}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L5}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L5}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L6}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L6}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L6}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__E}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__E}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__E}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__F}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__F}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__F}`: Customize the tile of this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__G}`: Customize the parallelization factor of this loop.
+- `#pragma ACCEL PIPELINE auto{__PIPE__G}`: Customize the pipeline of this loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__G}`: Customize the tile of this loop.

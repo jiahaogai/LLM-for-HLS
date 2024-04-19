@@ -1,0 +1,1 @@
+ACCEL PIPELINE off is used to prevent automatic pipeline flattening.

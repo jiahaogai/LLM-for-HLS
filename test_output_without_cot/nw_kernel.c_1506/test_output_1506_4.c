@@ -1,0 +1,1 @@
+6. #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L1}: Specify the parallelization factor of the outer loop of the 'needwun' function.

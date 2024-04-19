@@ -1,0 +1,6 @@
+- `#pragma ACCEL PIPELINE auto{__PIPE__L2}` - Use __PIPE__L2 pipeline for the loop in 'fill_in' block.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L2}` - Use __TILE__L2 tiling for the loop in 'fill_in' block.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}` - Use __PARA__L2 parallelization for the loop in 'fill_in' block.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L3}` - Use __PIPE__L3 pipeline for the loop in 'trace' block.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L3}` - Use __TILE__L3 tiling for the loop in 'trace' block.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}` - Use __PARA__L3 parallelization for the loop in 'trace' block.

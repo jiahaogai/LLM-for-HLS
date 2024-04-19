@@ -1,0 +1,1 @@
+They are not intended for automatic translation.

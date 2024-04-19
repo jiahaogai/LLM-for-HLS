@@ -1,0 +1,2 @@
+- After the second loop:
+  - `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute loop iterations sequentially, not concurrently, to handle dependencies.

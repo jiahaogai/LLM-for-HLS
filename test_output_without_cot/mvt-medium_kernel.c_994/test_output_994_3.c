@@ -1,0 +1,1 @@
+9. `#pragma ACCEL PIPELINE auto{off}` - Automatic loop pipelining is disabled to optimize resource utilization or to align timing constraints.

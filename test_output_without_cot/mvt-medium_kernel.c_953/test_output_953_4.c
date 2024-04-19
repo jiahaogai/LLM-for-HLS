@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Parallelizes loop iterations to execute sequentially, possibly using 1 parallel processes.

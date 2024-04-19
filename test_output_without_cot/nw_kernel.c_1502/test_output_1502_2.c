@@ -1,0 +1,5 @@
+### ACCEL PARALLEL FACTOR=auto{32}
+ 
+### ACCEL PIPELINE auto{off}
+ 
+### ACCEL TILE FACTOR=auto{1}

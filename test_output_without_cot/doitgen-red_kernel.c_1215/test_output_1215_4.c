@@ -1,0 +1,2 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Automatically parallelize the middle loop with a parallelization factor of 1.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Automatically parallelize the outer loop with a parallelization factor of 1.

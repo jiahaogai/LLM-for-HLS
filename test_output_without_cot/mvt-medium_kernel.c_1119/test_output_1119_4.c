@@ -1,0 +1,1 @@
+For more information about pragmas and auto{...} arguments, please refer to https://www.altera.com/products/design-software/altera-

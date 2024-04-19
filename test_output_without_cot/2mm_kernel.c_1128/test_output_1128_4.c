@@ -1,0 +1,1 @@
+Moreover, ensure that the kernel_2mm function is parallelized.

@@ -1,0 +1,1 @@
+- '#pragma ACCEL PARALLEL FACTOR=auto{1}': Execute iterations of the outer loop concurrently in groups of 1.

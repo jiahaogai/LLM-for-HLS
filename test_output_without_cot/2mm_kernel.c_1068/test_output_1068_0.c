@@ -1,0 +1,2 @@
+6. Inside the third nested loop (i.e., `for (j = 0; j < 50; j++)`):
+    - `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute loop iterations sequentially, not concurrently, to maintain data dependencies.

@@ -1,0 +1,3 @@
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop for optimization.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts for optimization.
+- `#pragma ACCEL PARALLEL FACTOR=auto{30}`: Execute loop iterations concurrently with a parallelization factor determined automatically. This will execute 30 iterations concurrently.

@@ -1,0 +1,2 @@
+8. `#pragma ACCEL PARALLEL reduction = x2 FACTOR=auto{__PARA__L2}`:  
+   **Explanation:** This directive specifies that the loop should be parallelized and that the reduction operation for array `x2` should be performed in parallel with a factor of `__PARA__L2`.

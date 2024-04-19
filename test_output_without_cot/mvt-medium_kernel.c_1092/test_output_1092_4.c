@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL reduction = x2 FACTOR=auto{2}`: Execute loop iterations concurrently with a reduction operation on the variable `x2` and a parallelization factor of 2.

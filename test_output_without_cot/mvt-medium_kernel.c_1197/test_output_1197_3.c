@@ -1,0 +1,1 @@
+9. `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Execute iterations of the middle loop in a parallel manner with a factor of 8.

@@ -1,0 +1,3 @@
+#pragma ACCEL PIPELINE auto{__PIPE__L2}
+#pragma ACCEL TILE FACTOR=auto{__TILE__L2}
+#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}

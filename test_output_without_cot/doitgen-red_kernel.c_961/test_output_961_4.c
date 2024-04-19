@@ -1,0 +1,2 @@
+- #pragma ACCEL PIPELINE auto{off}: Do not automatically pipeline the inner loop to allow for manual optimization.
+- #pragma ACCEL TILE FACTOR=auto{8}: Divide the inner loop into eight parts for better resource utilization.

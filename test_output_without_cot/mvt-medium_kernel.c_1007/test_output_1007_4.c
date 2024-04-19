@@ -1,0 +1,1 @@
+7. `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}`: Set the parallelization factor to a dynamic value.

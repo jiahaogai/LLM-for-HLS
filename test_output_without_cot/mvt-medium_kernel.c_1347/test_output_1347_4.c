@@ -1,0 +1,3 @@
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide the loop into parts with a factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently with a factor of 2.
