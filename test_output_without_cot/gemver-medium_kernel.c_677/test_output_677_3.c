@@ -1,0 +1,2 @@
+- `#pragma ACCEL PARALLEL reduction=y FACTOR=auto{24}`: Perform reduction operation for variable `y` with a parallel factor of 24.
+- `#pragma ACCEL PARALLEL reduction=z FACTOR=auto{24}`: Perform reduction operation for variable `z` with a parallel factor of 24.

@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL reduction=y FACTOR=auto{__PARA__L4}`: Execute loop iterations concurrently with a reduction operation on variable 'y' and a parallel factor of 2.

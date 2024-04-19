@@ -1,0 +1,6 @@
+- `#pragma ACCEL PARALLEL reduction=v1 FACTOR=auto{1}`: Concurrently execute loop iterations, performing a reduction operation using variable `v1` with an automatically determined factor of 1.
+- `#pragma ACCEL PARALLEL reduction=v2 FACTOR=auto{1}`: Concurrently execute loop iterations, performing a reduction operation using variable `v2` with an automatically determined factor of 1.
+- `#pragma ACCEL PARALLEL reduction=u1 FACTOR=auto{1}`: Concurrently execute loop iterations, performing a reduction operation using variable `u1` with an automatically determined factor of 1.
+- `#pragma ACCEL PARALLEL reduction=u2 FACTOR=auto{1}`: Concurrently execute loop iterations, performing a reduction operation using variable `u2` with an automatically determined factor of 1.
+- `#pragma ACCEL PARALLEL reduction=y FACTOR=auto{1}`: Concurrently execute loop iterations, performing a reduction operation using variable `y` with an automatically determined factor of 1.
+- `#pragma ACCEL PARALLEL reduction=z FACTOR=auto{1}`: Concurrently execute loop iterations, performing a reduction operation using variable `z` with an automatically determined factor of 1.

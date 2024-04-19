@@ -1,0 +1,1 @@
+- Parallel reduction on variable `sum_tmp`.

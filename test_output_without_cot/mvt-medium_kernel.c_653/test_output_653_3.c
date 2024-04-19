@@ -1,0 +1,1 @@
+- #pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}: Automatically parallelize loop with factor=__PARA__L2

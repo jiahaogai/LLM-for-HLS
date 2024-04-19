@@ -1,0 +1,1 @@
+11. #pragma ACCEL PARALLEL FACTOR=auto{1}: Execute the following loop iterations sequentially, not concurrently.

@@ -1,0 +1,1 @@
+In order to measure the performance of the generated code, you should compare the performance between the original code and the hardware accelerated code.

@@ -1,0 +1,2 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}`: User-specified parallelization factor.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}`: User-specified parallelization factor.

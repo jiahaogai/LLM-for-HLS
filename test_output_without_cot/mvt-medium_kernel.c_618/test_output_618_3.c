@@ -1,0 +1,9 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}`: Execute the outer loop iterations concurrently, allowing for a customized level of concurrency and resource allocation.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L2}`: Automatically pipeline the inner loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L2}`: Tile the inner loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}`: Execute the outer loop iterations concurrently, allowing for a customized level of concurrency and resource allocation.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L3}`: Automatically pipeline the inner loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L3}`: Tile the inner loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L4}`: Execute the outer loop iterations concurrently, allowing for a customized level of concurrency and resource allocation.
+- `#pragma ACCEL PIPELINE auto{__PIPE__L4}`: Automatically pipeline the inner loop.
+- `#pragma ACCEL TILE FACTOR=auto{__TILE__L4}`: Tile the inner loop.

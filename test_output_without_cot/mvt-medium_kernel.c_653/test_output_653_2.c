@@ -1,0 +1,2 @@
+- #pragma ACCEL PARALLEL FACTOR=auto{8}: Execute loop iterations concurrently using an automated factor value for optimization.
+- #pragma ACCEL PARALLEL reduction = x2 FACTOR=auto{1}: Execute loop iterations concurrently for reduction variable x2 using an automated factor value for optimization.

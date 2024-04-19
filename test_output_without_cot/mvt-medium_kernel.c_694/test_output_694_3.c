@@ -1,0 +1,1 @@
+The kernel has 5 array inputs and 0 array outputs.

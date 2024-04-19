@@ -1,0 +1,1 @@
+ACCEL PIPELINE and ACCEL TILE directives provide auto{off} and auto{1} correspondingly. ACCEL PARALLEL directive provides auto{16}.

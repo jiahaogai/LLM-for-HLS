@@ -1,0 +1,1 @@
+- #pragma ACCEL PARALLEL FACTOR=auto{1}: Automatically parallelize loop with factor=auto{1}

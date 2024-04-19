@@ -1,0 +1,1 @@
+#pragma ACCEL PARAMETER FACTOR=auto{2}

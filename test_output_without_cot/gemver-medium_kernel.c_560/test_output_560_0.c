@@ -1,0 +1,1 @@
+In order to measure the performance of the generated code, you should compile your code with `-DPERFORMANCE_CHECK`.

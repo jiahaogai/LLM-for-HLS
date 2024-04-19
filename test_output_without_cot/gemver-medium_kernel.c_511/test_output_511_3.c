@@ -1,0 +1,3 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently with a factor of 2.
+- `#pragma ACCEL PARALLEL reduction=y FACTOR=auto{2}`: Perform reduction operation on variable y with a factor of 2.
+- `#pragma ACCEL PARALLEL reduction=z FACTOR=auto{2}`: Perform reduction operation on variable z with a factor of 2.

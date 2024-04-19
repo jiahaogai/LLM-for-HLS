@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}`: Execute the outer loop iterations concurrently, allowing for a customized level of concurrency and resource allocation.
