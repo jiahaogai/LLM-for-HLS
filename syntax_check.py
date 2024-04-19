@@ -41,11 +41,11 @@ async def main():
 
     # for file, result in results:
     #     print(f"File: {file}\n{result}\n")
-    # 计算语法错误的文件数
+    # Count the number of files with syntax errors
     print(f"Total test instances: {len(results)}")
     print(f"Total pass instances: {sum(results)}")
     print(f"Total fail instances: {len(results) - sum(results)}")
     print(f"Pass rate: {sum(results) / len(results) * 100}%")
 
-# 运行异步主函数
+# Run the asynchronous main function
 asyncio.run(main())
