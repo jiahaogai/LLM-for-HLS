@@ -1,0 +1,1 @@
+It is considered an ACCEL kernel.

@@ -1,0 +1,1 @@
+Auto-tuning was enabled for this kernel.

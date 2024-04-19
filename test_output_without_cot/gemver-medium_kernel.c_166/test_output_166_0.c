@@ -1,0 +1,1 @@
+9. `#pragma ACCEL PARALLEL reduction=z FACTOR=auto{2}`: Perform reduction operation on array z with a factor of 2 concurrency.

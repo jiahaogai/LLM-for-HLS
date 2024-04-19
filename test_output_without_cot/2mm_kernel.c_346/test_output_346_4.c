@@ -1,0 +1,1 @@
+These pragmas do not necessarily represent the best performance in all cases. Users are

@@ -1,0 +1,1 @@
+- `ACCEL PARALLEL reduction=y FACTOR=auto{1}`: Perform reduction on variable y using a factor of 1 for concurrent execution.

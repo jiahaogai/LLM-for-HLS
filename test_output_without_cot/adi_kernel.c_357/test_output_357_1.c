@@ -1,0 +1,2 @@
+### AutoTiler directives: 
+//# ACCEL kernel

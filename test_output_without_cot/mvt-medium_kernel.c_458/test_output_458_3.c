@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Executes the loop iterations sequentially, not concurrently, with the parallel factor automatically determined for optimization.

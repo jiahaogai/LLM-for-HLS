@@ -1,0 +1,2 @@
+4. `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L2}`: Make this loop parallel across _PARA_L2_ processes.
+5. `#pragma ACCEL PARALLEL FACTOR=auto{__PARA__L3}`: Make this loop parallel across _PARA_L3_ processes.

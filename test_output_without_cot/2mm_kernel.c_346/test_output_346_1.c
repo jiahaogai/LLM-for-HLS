@@ -1,0 +1,1 @@
+These pragmas do not affect the semantics of the original source code.

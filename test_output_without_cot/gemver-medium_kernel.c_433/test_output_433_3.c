@@ -1,0 +1,2 @@
+9. `#pragma ACCEL PIPELINE auto{off}` - Do not automatically pipeline the following loop.
+10. `#pragma ACCEL PARALLEL FACTOR=auto{1}` - Execute loop iterations sequentially, not concurrently, with an automatically determined factor.

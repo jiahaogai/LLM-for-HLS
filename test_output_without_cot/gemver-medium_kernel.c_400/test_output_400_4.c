@@ -1,0 +1,1 @@
+13. `#pragma ACCEL PARALLEL reduction=y FACTOR=auto{1}`: Apply parallel computation with reduction for variable y and execute loop iterations sequentially.

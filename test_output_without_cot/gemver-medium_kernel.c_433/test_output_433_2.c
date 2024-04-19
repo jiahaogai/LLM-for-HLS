@@ -1,0 +1,1 @@
+9. `#pragma ACCEL PIPELINE auto{off}` - Do not automatically pipeline the following loop.
