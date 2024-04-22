@@ -20,7 +20,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
 tensor_parallel_size = torch.cuda.device_count()
 # model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
-model_path = "/root/autodl-tmp/LLM/LLM-for-HLS/qlora-out/merged"
+model_path = "./qlora-out/merged"
 llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1)
 
 
@@ -99,10 +99,10 @@ def infer_with_syntax_check(args, data):
                 # predicted_text = predicted_text.replace(input_text, '').replace('</s>', '').strip()
                 predicted_text = predicted_text[predicted_text.find('#'):]
 
-                with open(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c', 'w') as f:
+                with open(f'./tmp.c', 'w') as f:
                     f.write(predicted_text)
 
-                flag, message = check_c_file_syntax(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
+                flag, message = check_c_file_syntax(f'./tmp.c')
                 if not flag:
                     input_text = "The following code is the result of prompt: " + input_text + "\nCode: " + predicted_text + "\nError: " + message + \
                                          "\nPlease check the code and try again."
@@ -132,7 +132,7 @@ def infer_with_syntax_check(args, data):
 
 if __name__ == "__main__":
     # 打开YAML文件
-    with open('/root/autodl-tmp/LLM/LLM-for-HLS/axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
+    with open('./axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
         # 加载YAML内容
         args = yaml.safe_load(file)
     args['pass_num'] = 3

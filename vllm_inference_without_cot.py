@@ -4,12 +4,12 @@ import torch
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
-if os.path.exists("/root/autodl-tmp/LLM/LLM-for-HLS/qlora-out/merged"):
+if os.path.exists("./qlora-out/merged"):
     print("find merged model")
 else:
     print("not find merged model")
     os.system(
-        "python3 -m axolotl.cli.merge_lora axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='/root/autodl-tmp/LLM/LLM-for-HLS/axolotl/qlora-out'")
+        "python3 -m axolotl.cli.merge_lora axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='./axolotl/qlora-out'")
 
 from vllm import LLM
 from vllm.sampling_params import SamplingParams
@@ -17,7 +17,7 @@ import yaml
 import json
 
 # 打开YAML文件
-with open('/root/autodl-tmp/LLM/LLM-for-HLS/axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
+with open('./axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
     # 加载YAML内容
     args = yaml.safe_load(file)
 
