@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently in groups of 2.
