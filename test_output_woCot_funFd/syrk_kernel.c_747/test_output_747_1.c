@@ -1,1 +1,0 @@
-Code: #pragma ACCEL PIPELINE auto{}
