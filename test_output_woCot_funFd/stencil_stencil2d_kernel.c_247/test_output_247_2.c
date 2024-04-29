@@ -1,0 +1,101 @@
+Code: #pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{8}
+  middle:
+  for (j = 0; j < 256; j++) {
+    val = 0;
+    
+#pragma ACCEL PARALLEL reduction=sol FACTOR=auto{8}
+    inner:
+    for (k = 0; k < 9; k++) {
+      idx = (256 * (k - 4)) + j;
+      val += filter[k] * orig[i * 256 + idx];
+    }
+    sol[i * 256 + j] = val;
+  }
+}
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL PIPELINE auto{}
+  
+#pragma ACCEL TILE FACTOR=auto{126}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+  outer:
+  for (i = 0; i < 256; i++) {
+    
+#pragma ACCEL PIPELINE auto{flatten}
+    
+#pragma ACCEL TILE FACTOR=auto{8}
+    
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+    middle:
+    for (j = 0; j < 256; j++) {
+      val = 0;
+      
+#pragma ACCEL PARALLEL reduction=orig FACTOR=auto{1}
+      inner:
+      for (k = 0; k < 9; k++) {
+        idx = (256 * (k - 4)) + j;
+        val += filter[k] * orig[i * 256 + idx];
+      }
+      sol[i * 256 + j] = val;
+    }
+  }
+}
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{8}
+  middle:
+  for (j = 0; j < 256; j++) {
+    val = 0;
+    
+#pragma ACCEL PARALLEL reduction=sol FACTOR=auto{1}
+    inner:
+    for (k = 0; k < 9; k++) {
+      idx = (256 * (k - 4)) + j;
+      val += filter[k] * orig[i * 256 + idx];
+    }
+    sol[i * 256 + j] = val;
+  }
+}
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL PIPELINE auto{}
+  
+#pragma ACCEL TILE FACTOR=auto{126}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+  outer:
+  for (i = 0; i < 256; i++) {
+    
+#pragma ACCEL PIPELINE auto{flatten}
+    
+#pragma ACCEL TILE FACTOR=auto{8}
+    
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+    middle:
+    for (j = 0; j < 256; j++) {
+      val = 0;
+      
+#pragma ACCEL PARALLEL reduction=orig FACTOR=auto{1}
+      inner:
+      for (k = 0; k < 9; k++) {
+        idx = (256 * (k - 4)) + j;
+        val += filter[k] * orig[i * 256 + idx];
+      }
+      sol[i * 256 + j] = val;
+    }
+  }
+}
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1

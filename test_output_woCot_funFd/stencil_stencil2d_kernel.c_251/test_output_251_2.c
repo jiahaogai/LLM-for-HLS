@@ -1,0 +1,47 @@
+#pragma ACCEL kernel
+
+void stencil(int orig[8192],int sol[8192],int filter[9])
+{
+  int i;
+  int j;
+  int k;
+  int k_col;
+  int i_col;
+  int j_col;
+  int t;
+  int pad;
+  pad = 1;
+  
+#pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+  outer:
+  for (i = 0; i < 32 + 2 * 1; i++) {
+    
+#pragma ACCEL PIPELINE auto{}
+    
+#pragma ACCEL TILE FACTOR=auto{2}
+    
+#pragma ACCEL PARALLEL FACTOR=auto{31}
+    middle:
+    for (j = 0; j < 32 + 2 * 1; j++) {
+      i_col = i - 1;
+      j_col = j - 1;
+      t = 0;
+      
+#pragma ACCEL PARALLEL reduction=t FACTOR=auto{16}
+      inner:
+      for (k = 0; k < 3; k++) {
+        
+#pragma ACCEL PARALLEL reduction=t FACTOR=auto{2}
+        k_col:
+        for (k_col = 0; k_col < 3; k_col++) {
+          t += filter[k * 3 + k_col] * orig[i_col * 32 + j_col * 3 + k_col];
+        }
+      }
+      sol[i * 32 + j] = t;
+    }
+  }
+}
