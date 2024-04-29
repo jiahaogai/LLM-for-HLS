@@ -1,0 +1,1 @@
+#pragma ACCEL kernel stencil

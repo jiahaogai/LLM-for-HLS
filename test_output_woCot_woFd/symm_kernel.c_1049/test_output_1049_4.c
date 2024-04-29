@@ -1,0 +1,3 @@
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline the reduction loop.
+    - `#pragma ACCEL TILE FACTOR=auto{1}`: Keep the reduction loop whole, without dividing it into smaller parts.
+    - `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute the reduction loop iterations sequentially, not concurrently.

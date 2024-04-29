@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL reduction=C FACTOR=auto{16}`: Specifies a reduction operation on the variable `C`, allowing parallel execution with the compiler deciding the optimal parallelization factor.

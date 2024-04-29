@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARAMS alpha=1.000000 beta=1.000000 A[80][60] B[80][60] C[80][80]`: Specifies parameter values to pass to the kernel.

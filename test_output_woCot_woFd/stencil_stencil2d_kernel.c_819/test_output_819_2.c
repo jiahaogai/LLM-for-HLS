@@ -1,0 +1,76 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Execute loop iterations concurrently, not sequentially.
+- `#pragma ACCEL PARALLEL FACTOR=auto{2}`: Data parallelize this loop.
+- `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Data parallelize this loop.
+
+#pragma ACCEL kernel
+
+void stencil(int orig[81

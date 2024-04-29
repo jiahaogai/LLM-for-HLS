@@ -1,0 +1,1 @@
+- `C[i][j] += A[i][k] * B[k][j]`: Basic operation for matrix multiplication.

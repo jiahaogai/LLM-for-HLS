@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Split the middle loop into 4 separate execution units that can run concurrently.

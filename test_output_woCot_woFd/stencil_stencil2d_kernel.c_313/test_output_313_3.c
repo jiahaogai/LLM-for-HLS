@@ -1,0 +1,1 @@
+ACCEL PIPELINE, ACCEL TILE, and ACCEL PARALLEL directives control these loop characteristics.

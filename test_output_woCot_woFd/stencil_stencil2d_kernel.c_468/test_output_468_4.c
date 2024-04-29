@@ -1,0 +1,152 @@
+5. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+6. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+7. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+8. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+9. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+10. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+11. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+12. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+13. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+14. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+15. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+16. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+17. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+18. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+19. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+20. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+21. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+22. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+23. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+24. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+25. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+26. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+27. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+28. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+29. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+30. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+31. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+32. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+33. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+34. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+35. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+36. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+37. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+38. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+39. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+40. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+41. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+42. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+43. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+44. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+45. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+46. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+47. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+48. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+49. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+50. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+51. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+52. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.
+
+53. `#pragma ACCEL PIPELINE auto{off}`:
+   - Interpretation: Do not automatically pipeline this loop.
+   
+54. `#pragma ACCEL TILE FACTOR=auto{1}`:
+   - Interpretation: Keep this loop whole, without dividing it into smaller parts.
+
+55. `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+   - Interpretation: Execute loop iterations sequentially, not concurrently.

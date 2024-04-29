@@ -1,0 +1,2 @@
+8. `#pragma ACCEL TILE FACTOR=auto{1}`: Keep the loop (`stencil_label3`) whole without dividing it into smaller parts, likely to maintain data locality.
+9. `#pragma ACCEL PARALLEL FACTOR=auto{8}`: Execute loop iterations of the loop (`stencil_label3`) concurrently in groups of 8, exploiting parallelism for performance.

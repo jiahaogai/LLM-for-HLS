@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL reduction=C FACTOR=auto{__PARA__L1}`: Perform reduction operation in parallel with a specific factor for optimization.

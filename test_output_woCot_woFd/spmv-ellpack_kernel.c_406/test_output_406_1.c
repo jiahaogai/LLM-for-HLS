@@ -1,0 +1,2 @@
+**Optimized for:**
+`{flatten}`

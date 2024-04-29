@@ -1,0 +1,76 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{16}`: Pipeline this loop, with parallelization factor of 16.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Pipeline this loop, with parallelization factor of 1.
+- `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Pipeline this loop, with parallelization factor of 4.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Pipeline this loop, with parallelization factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Pipeline this loop, with parallelization factor of 4.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+
+#pragma ACCEL kernel
+
+void kernel_syrk(double alpha,double beta,double C[80][

@@ -1,0 +1,2 @@
+- The loop nest involving matrix A is parallelized with tile-level parallelism.
+- The loop nest involving matrix B is parallelized with tile-level parallelism.

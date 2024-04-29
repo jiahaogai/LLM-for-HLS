@@ -1,0 +1,1 @@
+The `orig` and `sol` arguments are passed by reference to allow the function to modify the original array in place.

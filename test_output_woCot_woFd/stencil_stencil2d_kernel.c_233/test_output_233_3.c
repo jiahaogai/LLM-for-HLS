@@ -1,0 +1,96 @@
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.
+- `#pragma ACCEL PIPELINE auto{off}`:
+  - Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`:
+  - Keep this loop whole, without dividing it into smaller parts, with an auto-calculated tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`:
+  - Execute loop iterations sequentially, not concurrently, with an auto-calculated parallel factor of 1.

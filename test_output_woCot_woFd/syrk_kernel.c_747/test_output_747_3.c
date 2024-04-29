@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{16}`: Execute loop iterations concurrently with a parallelism factor of 16.

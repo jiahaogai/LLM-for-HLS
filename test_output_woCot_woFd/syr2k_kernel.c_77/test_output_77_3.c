@@ -1,0 +1,3 @@
+- `#pragma ACCEL PIPELINE auto{}`: Automatically apply pipeline optimizations to the inner loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep the inner loop as a whole without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute innermost loop iterations sequentially, not concurrently.

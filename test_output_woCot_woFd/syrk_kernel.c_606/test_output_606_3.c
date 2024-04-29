@@ -1,0 +1,2 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Split the inner loop into 4 separate execution units that can run concurrently.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Split the inner loop into 1 separate execution units that can run concurrently.

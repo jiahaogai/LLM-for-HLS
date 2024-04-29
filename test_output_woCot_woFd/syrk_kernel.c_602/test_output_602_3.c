@@ -1,0 +1,4 @@
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline the subsequent loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep the subsequent loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute loop iterations sequentially, not concurrently.

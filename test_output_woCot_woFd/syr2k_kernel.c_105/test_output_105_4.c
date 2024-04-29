@@ -1,0 +1,2 @@
+- `ALPHA = 1.2`: Scalar used to scale matrix A.
+- `BETA = 0.9`: Scalar used to scale matrix C.

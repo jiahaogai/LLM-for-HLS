@@ -1,0 +1,60 @@
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.
+- `#pragma ACCEL PIPELINE auto{off}`: Do not automatically pipeline this loop.
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep this loop whole, without dividing it into smaller parts.
+- `#pragma ACCEL PARALLEL FACTOR=auto{5}`: Execute loop iterations sequentially, not concurrently.
+- `#pragma ACCEL PIPELINE auto{}`: Enable automatic pipelining for this loop.
+- `#pragma ACCEL TILE FACTOR=auto{8}`: Divide this loop into smaller parts with a tile factor of 8.
+- `#pragma ACCEL PARALLEL FACTOR=auto{3}`: Execute iterations of this loop concurrently, with a parallel factor of 3.

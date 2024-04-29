@@ -1,0 +1,1 @@
+The inner loop is automatically pipelined in a flattened manner.

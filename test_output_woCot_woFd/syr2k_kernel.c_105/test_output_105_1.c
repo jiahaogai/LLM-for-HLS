@@ -1,0 +1,2 @@
+- `ALPHA = 1.0`: Scale factor.
+- `BETA = 0.0`: Scale factor.

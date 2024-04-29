@@ -1,0 +1,1 @@
+- For the innermost loop (`stencil_label4`), pipeline automatically.
