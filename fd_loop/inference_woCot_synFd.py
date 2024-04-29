@@ -1,15 +1,15 @@
 import copy
+import gc
 import json
 import os
 import subprocess
-import tempfile
 
 import torch
 import yaml
 from tqdm import tqdm
 from vllm import LLM
 from vllm.sampling_params import SamplingParams
-
+from vllm.model_executor.parallel_utils.parallel_state import destroy_model_parallel
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
 # if os.path.exists("/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"):
@@ -21,35 +21,26 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
 tensor_parallel_size = torch.cuda.device_count()
 # model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
-model_path = "./qlora-out/merged"
-llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1)
+model_path = "/root/autodl-tmp/LLM/LLM-for-HLS/qlora-out/merged"
+device_count = torch.cuda.device_count()
+llm = LLM(model_path, tensor_parallel_size=device_count, gpu_memory_utilization=0.5)
 
-def compile_and_run(test_case_file_path, output_file_path):
-    with tempfile.TemporaryDirectory() as temp_dir:
-        # tmp_file_path = os.path.join(temp_dir, "test_fdtd")
-        result = subprocess.run(["gcc", f"-o test_fdtd", test_case_file_path, output_file_path],
-                                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = result.stdout, result.stderr
-        # print(f"stdout: {stdout.decode()}")
-        # if stderr:
-        #     print(f"stderr: {stderr.decode()}")
-        return result.returncode == 0, stdout.decode("utf-8")
 
-# def check_c_file_syntax(file_path):
-#     process = subprocess.Popen(
-#         ["gcc", "-fsyntax-only", file_path],
-#         stdout=subprocess.PIPE,
-#         stderr=subprocess.PIPE
-#     )
-#
-#     stdout, stderr = process.communicate()
-#
-#     if process.returncode != 0:
-#         return False, stderr.decode()
-#     else:
-#         return True, "No syntax errors found."
-#     # return process.returncode == 0  # True if no syntax errors
-#
+def check_c_file_syntax(file_path):
+    process = subprocess.Popen(
+        ["gcc", "-fsyntax-only", file_path],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    )
+
+    stdout, stderr = process.communicate()
+
+    if process.returncode != 0:
+        return False, stderr.decode()
+    else:
+        return True, "No syntax errors found."
+    # return process.returncode == 0  # True if no syntax errors
+
 
 def find_c_code(text):
     """
@@ -74,17 +65,15 @@ def generate_batch(prompts, vll_generate_params):
 
 
 def infer_with_syntax_check(args, data):
-    bs = 2
+    batch_size = 1
     use_chain_of_thought = args.get('use_chain_of_thought', False)
     chain_of_thought_prompt = args.get('chain_of_thought_prompt', "")
     predicted_data_dir = args['predicted_data_dir']
-    predicted_data_dir += f"_cot_functionality_feedback_loop"
+    predicted_data_dir += "_woCot_synFd"
     print(f"predicted_data_dir: {predicted_data_dir}")
     # 清空predicted_data_dir目录
     os.system(f"rm -rf {predicted_data_dir}")
     os.makedirs(predicted_data_dir, exist_ok=True)
-    # with open(args['test_dataset_path'], 'r') as f:
-    #     data = f.readlines()
 
     if use_chain_of_thought:
         prompts = [json.loads(line)['input'] + "\n\n" + chain_of_thought_prompt for line in data]
@@ -95,43 +84,33 @@ def infer_with_syntax_check(args, data):
     print(f"source_files: {len(source_files)}")
     outputs = [json.loads(line)['output'] for line in data]
 
-    for i in range(0, len(prompts), bs):
-        batch_prompts = prompts[i:i + bs]
-        batch_outputs = outputs[i:i + bs]
-        batch_source_files = source_files[i:i + bs]
+    for i in range(0, len(prompts), batch_size):
+        batch_prompts = prompts[i:i + batch_size]
+        batch_outputs = outputs[i:i + batch_size]
+        batch_source_files = source_files[i:i + batch_size]
 
         generated_batch = generate_batch(batch_prompts, generate_params)
 
         for k, (input_text, output, predicted_dict, source_file) in enumerate(
                 zip(batch_prompts, batch_outputs, generated_batch, batch_source_files)):
 
-            source_file = batch_source_files[k]
-            for i, predicted_text in predicted_dict.items():
+            # source_file = line['source_file']
+            for _, predicted_text in predicted_dict.items():
                 # predicted_text = predicted_text.replace(input_text, '').replace('</s>', '').strip()
                 predicted_text = predicted_text[predicted_text.find('#'):]
 
-                with open('./tmp.c', 'w') as f:
+                with open(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c', 'w') as f:
                     f.write(predicted_text)
-                truth_file = "./data/sources/" + source_file
-                # 然后加载测试文件
-                test_case_file = "./functionality_data/" + source_file.split('.c')[0] + "_test.c"
-                assert os.path.exists(test_case_file), f"Test case file {test_case_file} does not exist"
-                # print(test_case_file)
 
-                # print(test_dir_path)
-                # 先得到正确文件的输出
-                flag, test_output = compile_and_run(test_case_file, truth_file)
-                # print(test_output)
-                assert flag, f"Compilation failed for {test_case_file} and {truth_file}, with {test_output}"
-                flag, message = compile_and_run(test_case_file, './tmp.c')
-                # flag, message = check_c_file_syntax(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
+                flag, message = check_c_file_syntax(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
                 if not flag:
                     input_text = "The following code is the result of prompt: " + input_text + "\nCode: " + predicted_text + "\nError: " + message + \
                                          "\nPlease check the code and try again."
                     vll_generate_params = copy.deepcopy(generate_params)
-                    vll_generate_params.max_tokens = 4096 - 1024 - len(input_text)
+                    vll_generate_params.max_tokens = 1024
                     vll_generate_params.n = 1
-                    predicted_dict[i] = generate_batch([input_text], vll_generate_params)[0][0]
+                    predicted_dict[_] = generate_batch([input_text], vll_generate_params)[0][0]
+                    # predicted_dict[i] = generate_batch([input_text])[0][0]
             line = {
                 "input": input_text,
                 # "output": output,
@@ -140,13 +119,23 @@ def infer_with_syntax_check(args, data):
             }
             os.makedirs(f'{predicted_data_dir}/{line["source_file"]}_{i+k}', exist_ok=True)
             for j, text in line['predicted'].items():
-                with open(f'{predicted_data_dir}/{line["source_file"]}_{i+k}/test_output_{i+k}_{j}.c', 'w') as w:
-                    w.write(text)
+                with open(os.path.join(predicted_data_dir, f"{source_file}_{i + k}", f"test_output_{i + k}_{j}.c"),
+                          'w') as f:
+                    f.write(text)
+        # destroy_model_parallel()
 
+        # 清除不必要的变量
+        del generated_batch
+        del batch_prompts
+        del batch_outputs
+        del batch_source_files
+        # 释放显存
+        gc.collect()
+        torch.cuda.empty_cache()
 
 if __name__ == "__main__":
     # 打开YAML文件
-    with open('./axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
+    with open('/root/autodl-tmp/LLM/LLM-for-HLS/axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
         # 加载YAML内容
         args = yaml.safe_load(file)
     args['pass_num'] = 3
