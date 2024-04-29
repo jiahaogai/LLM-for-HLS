@@ -1,0 +1,1 @@
+- `#pragma ACCEL PARALLEL reduction=C FACTOR=auto{5}`: Annotates the reduction (`C`) loop, which requires special handling in the accelerator runtime. The `FACTOR=auto{5}` annotation is a performance hint to avoid data races.
