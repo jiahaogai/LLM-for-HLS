@@ -1,18 +1,30 @@
+<<<<<<< HEAD
 Code: #pragma ACCEL kernel
+=======
+#pragma ACCEL kernel
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 
 void stencil(int orig[8192],int sol[8192],int filter[9])
 {
   int i;
   int j;
+<<<<<<< HEAD
   int t;
   int x;
   int y;
+=======
+  int ti;
+  int tj;
+  int idx;
+  int val;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{1}
   
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+<<<<<<< HEAD
   outer:
   for (i = 1; i < 8191; i++) {
     
@@ -91,3 +103,22 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
 }
 Error: /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c: In function ‘stencil’:
 /root/autodl-tmp/
+=======
+  for (i = 1; i < 8191; i++) {
+    
+#pragma ACCEL PARALLEL FACTOR=auto{16}
+    for (j = 1; j < 8191; j++) {
+      ti = -4 + i;
+      tj = -4 + j;
+      val = 0;
+      
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+      for (idx = 0; idx < 9; ++idx) {
+        val += filter[idx] * orig[ti + idx * 8191 + 4]
+            * orig[tj + idx * 8191 + 4];
+      }
+      sol[i * 8191 + j] = val;
+    }
+  }
+}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

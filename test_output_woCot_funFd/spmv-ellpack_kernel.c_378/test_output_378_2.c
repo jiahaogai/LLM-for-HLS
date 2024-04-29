@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma ACCEL kernel
 
 void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
@@ -19,3 +20,145 @@ void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
     }
   }
 }
+=======
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error: 
+Please check the code and try again.
+Code: #pragma ACCEL kernel
+Error:
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

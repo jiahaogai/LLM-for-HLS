@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma ACCEL kernel
 
 void stencil(int orig[8192],int sol[8192],int filter[9])
@@ -41,3 +42,186 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
     }
   }
 }
+=======
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code: 
+Error: 
+Please check the code and try again.
+Code:
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

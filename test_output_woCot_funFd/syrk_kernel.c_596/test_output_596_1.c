@@ -10,7 +10,11 @@ void kernel_syrk(double alpha,double beta,double C[80][80],double A[80][60])
 //TRANSB = 'T'
 // => Form C := alpha*A*A**T + beta*C,
 //A is NIxNK
+<<<<<<< HEAD
 //C is NIxNJ
+=======
+//C is NOxNO
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 //K is NK
   
 #pragma scop

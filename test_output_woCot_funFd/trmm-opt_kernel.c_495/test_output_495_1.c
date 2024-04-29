@@ -5,6 +5,7 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
   int i;
   int j;
   int k;
+<<<<<<< HEAD
 //BLAS PARAMS
 //TRANSA = 'T'
 //TRANSB = 'N'
@@ -13,6 +14,9 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
 //B is M(60) x N(80)
   
 #pragma scop
+=======
+//#pragma scop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
@@ -30,11 +34,19 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
       B[i][j] *= alpha;
       
 #pragma ACCEL PARALLEL reduction=B FACTOR=auto{60}
+<<<<<<< HEAD
       for (k = 0; k < 60; k++) {
+=======
+      for (k = 0; k < 60; ++k) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
         B[i][j] += A[i][k] * B[k][j];
       }
     }
   }
+<<<<<<< HEAD
   
 #pragma endscop
+=======
+//#pragma endscop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

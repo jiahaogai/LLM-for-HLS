@@ -13,9 +13,13 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
 // => A is N-by-N
 //B is TRANSB = 'N'
 // => B is N-by-M
+<<<<<<< HEAD
 // => therefore: M = 80
 // =>               N = 60
 // =>               K = 60
+=======
+// => => product is N-by-M
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma scop
   
@@ -36,7 +40,11 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
       
 #pragma ACCEL PARALLEL reduction=sum FACTOR=auto{8}
       for (k = 0; k < 60; k++) {
+<<<<<<< HEAD
         sum += alpha * A[i][k] * B[k][j];
+=======
+        sum += alpha * A[k][i] * B[k][j];
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       }
       B[i][j] = sum;
     }

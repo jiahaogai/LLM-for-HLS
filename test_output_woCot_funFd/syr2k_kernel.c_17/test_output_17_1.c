@@ -5,6 +5,7 @@ void kernel_syr2k(double alpha,double beta,double C[400][400],double A[400][300]
   int i;
   int j;
   int k;
+<<<<<<< HEAD
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'N'
@@ -12,6 +13,9 @@ void kernel_syr2k(double alpha,double beta,double C[400][400],double A[400][300]
 //A is NIxNK
 //B is NKxNJ
 //C is NIxNJ
+=======
+//#pragma scop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
@@ -38,4 +42,8 @@ void kernel_syr2k(double alpha,double beta,double C[400][400],double A[400][300]
       }
     }
   }
+<<<<<<< HEAD
+=======
+//#pragma endscop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

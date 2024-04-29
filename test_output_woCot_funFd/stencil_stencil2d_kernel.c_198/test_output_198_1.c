@@ -22,8 +22,13 @@ void stencil(double orig[8192],double sol[8192],double filter[9])
       inner:
       for (k = 0; k < 9; k++) {
         k_col = i - 4 + k % 5;
+<<<<<<< HEAD
         k_row = j + k - 4;
         if ((((k_col >= 0) && (k_col < 8192)) && ((k_row >= 0) && (k_row < 8))) && ((filter[k]) != 0.0)) {
+=======
+        k_row = j + k / 5;
+        if ((((k_col > -1) && (k_col < 8192)) && ((k_row > -1) && (k_row < 8))) && ((filter[k] > 0.001f))) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
           sum += filter[k] * orig[k_row * 8192 + k_col];
         }
       }

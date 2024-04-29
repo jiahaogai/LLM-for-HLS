@@ -17,7 +17,11 @@ void stencil3d(long C0,long C1,double orig[27][27][27],double sol[27][27][27])
 #pragma ACCEL TILE FACTOR=auto{1}
     for (j = 1; j < 27 - 1; j++) {
       for (k = 1; k < 27 - 1; k++) {
+<<<<<<< HEAD
         sol[i][j][k] = ((2 * orig[i][j][k]) + (orig[i - 1][j][k] + orig[i + 1][j][k] + orig[i][j - 1][k] + orig[i][j + 1][k] + orig[i][j][k - 1] + orig[i][j][k + 1])) / 8.0;
+=======
+        sol[i][j][k] = ((2.0 * orig[i][j][k]) + (orig[i - 1][j][k] + orig[i + 1][j][k] + orig[i][j - 1][k] + orig[i][j + 1][k] + orig[i][j][k - 1] + orig[i][j][k + 1])) / 6.0;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       }
     }
   }

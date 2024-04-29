@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Code: ### Flat Contraction:
    C := alpha*A*B**T + beta*C,
 
@@ -83,3 +84,7 @@ Error: /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:1:1: error: stray ‘##’ in prog
       | ^~
 /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:6:3: error: stray ‘#’ in program
     6 | ### TILE FACT
+=======
+Summary: 
+Please check the code and try again.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

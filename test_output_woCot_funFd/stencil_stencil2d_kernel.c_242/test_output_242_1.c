@@ -25,7 +25,11 @@ void stencil(double orig[8192],double sol[8192],double filter[9])
     inner:
     for (j = 0; j < 8192; j++) {
       sum = 0.0;
+<<<<<<< HEAD
       middle:
+=======
+      inner_3:
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       for (k = 0; k < 9; k++) {
         k_col = ((i + (-4 + ((k + 4) >> 5)) + 8191) % 8192);
         i_col = ((j + (-4 + ((k + 4) & 31)) + 8191) % 8192);

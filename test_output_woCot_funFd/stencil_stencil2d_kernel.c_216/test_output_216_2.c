@@ -1,5 +1,6 @@
 #pragma ACCEL kernel
 
+<<<<<<< HEAD
 void stencil(int orig[400][400],int sol[400][400],int filter[16][16])
 {
   int row;
@@ -11,12 +12,23 @@ void stencil(int orig[400][400],int sol[400][400],int filter[16][16])
   int flit_row;
   int flit_col;
   int sum;
+=======
+void stencil(int orig[40][40],int sol[40][40],int filter[9])
+{
+  int i;
+  int j;
+  int k;
+  int idx;
+  int idy;
+  int fl;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{126}
   
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+<<<<<<< HEAD
   loop_row_up:
 /* Standardize from: for(row = 1; row < 400 - 1; row++) {...} */
   row = 1;
@@ -74,4 +86,28 @@ void stencil(int orig[400][400],int sol[400][400],int filter[16][16])
      }
   }
   sol[row][col] = sum;
+=======
+  outer:
+  for (i = 1; i < 39; i++) {
+    
+#pragma ACCEL PIPELINE auto{off}
+    
+#pragma ACCEL TILE FACTOR=auto{1}
+    
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+    inner:
+    for (j = 1; j < 39; j++) {
+      sol[i][j] = 0;
+      
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+      loop:
+      for (k = 0; k < 9; k++) {
+        idx = i - 4 + ((k >> 6) & 3);
+        idy = j - 4 + (k & 3);
+        fl = filter[k];
+        sol[i][j] += fl * orig[idx][idy];
+      }
+    }
+  }
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

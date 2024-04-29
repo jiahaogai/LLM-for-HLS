@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 These directives can be omitted, in which case the default behavior of the tool will be used. For more information, see the online documentation.
+=======
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 #pragma ACCEL kernel
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
@@ -6,7 +9,17 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
   int i;
   int j;
   int k;
+<<<<<<< HEAD
 //#pragma scop
+=======
+//BLAS PARAMS
+//TRANSA = 'N'
+//TRANSB = 'N'
+// => Form C := alpha*A*B**T + beta*C,
+//A is ROW MAJOR
+//B is ROW MAJOR
+//C is ROW MAJOR
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -33,5 +46,8 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
       }
     }
   }
+<<<<<<< HEAD
 //#pragma endscop
+=======
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

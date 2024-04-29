@@ -8,12 +8,19 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'T'
+<<<<<<< HEAD
 // => Form C := alpha*A*B^T + alpha*B*A^T + beta*C,
 //A is NIxNK
 //B is NIxNK
 //C is NKxNK
   
 #pragma scop
+=======
+// => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
+//A is NIxNK
+//B is NKxNJ
+//C is NIxNJ
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -35,11 +42,18 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
     for (k = 0; k < 60; k++) {
       
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{32}
+<<<<<<< HEAD
       for (j = 0; j < 80; j++) {
+=======
+      for (j = 0; j < 60; j++) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
         C[i][j] += alpha * A[i][k] * B[k][j];
       }
     }
   }
+<<<<<<< HEAD
   
 #pragma endscop
+=======
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

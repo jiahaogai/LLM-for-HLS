@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma ACCEL kernel
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
@@ -39,3 +40,6 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
     }
   }
 }
+=======
+Failed to build.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

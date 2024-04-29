@@ -12,7 +12,14 @@ void ellpack(double nzval[4940],int cols[4940],double vec[49],double out[49])
 #pragma ACCEL TILE FACTOR=auto{1}
   
 #pragma ACCEL PARALLEL FACTOR=auto{4}
+<<<<<<< HEAD
   for (i = 0; i < 494; i++) {
     out[cols[i]] += nzval[i] * vec[i % 49];
+=======
+  for (j = 0; j < 494; j++) {
+    int idx;
+    idx = cols[j];
+    out[idx] += nzval[j] * vec[j / 8];
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   }
 }

@@ -1,19 +1,33 @@
 #pragma ACCEL kernel
 
+<<<<<<< HEAD
 void stencil3d(long C0,long C1,double orig[27],double sol[27])
 {
   double _in_[8];
   double _out_[8];
   double _tmp_ = 0.0;
+=======
+void stencil3d(long C0,long C1,double orig[27][27][27],double sol[27][27][27])
+{
+  long i;
+  long j;
+  long k;
+//#pragma scop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{8}
+<<<<<<< HEAD
   for (long c = 0; c < 3; c++) {
+=======
+  for (i = 1; i < 27 - 1; i++) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     
 #pragma ACCEL PIPELINE auto{}
     
 #pragma ACCEL TILE FACTOR=auto{1}
+<<<<<<< HEAD
     for (long b = 0; b < 3; b++) {
       
 #pragma ACCEL PIPELINE auto{}
@@ -47,4 +61,13 @@ void stencil3d(long C0,long C1,double orig[27],double sol[27])
       }
     }
   }
+=======
+    for (j = 1; j < 27 - 1; j++) {
+      for (k = 1; k < 27 - 1; k++) {
+        sol[i][j][k] = ((2.0 * orig[i][j][k]) + (orig[i - 1][j][k] + orig[i + 1][j][k] + orig[i][j - 1][k] + orig[i][j + 1][k] + orig[i][j][k - 1] + orig[i][j][k + 1]) + (-5.0 * orig[i][j][k])) / 36.0;
+      }
+    }
+  }
+//#pragma endscop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

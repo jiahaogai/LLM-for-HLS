@@ -1,13 +1,45 @@
+<<<<<<< HEAD
 Code: #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{4}
   
 #pragma ACCEL PARALLEL FACTOR=auto{16}
+=======
+Code: #pragma ACCEL PARAMS ellpack_nzval=auto{4940} ellpack_cols=auto{4940} ellpack_vec=auto{494} ellpack_out=auto{494}:
+   User-provided parameters for the function ellpack. The values of these parameters are automatically passed to the function at runtime.
+
+#pragma ACCEL PIPELINE auto{off}
+
+#pragma ACCEL TILE FACTOR=auto{1}
+
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+ #pragma ACCEL PIPELINE auto{off}
+
+#pragma ACCEL TILE FACTOR=auto{4}
+
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+ #pragma ACCEL PIPELINE auto{off}
+
+#pragma ACCEL TILE FACTOR=auto{1}
+
+#pragma ACCEL PARALLEL FACTOR=auto{16}
+ #pragma ACCEL PIPELINE auto{}
+  
+#pragma ACCEL PIPELINE auto{off}
+
+#pragma ACCEL TILE FACTOR=auto{4}
+
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+ #pragma ACCEL PIPELINE auto{off}
+#include <math.h>
+#pragma ACCEL kernel
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
 {
   int i;
   int j;
   double sum;
+<<<<<<< HEAD
   double val;
 #pragma ACCEL PIPELINE auto{off}
   
@@ -57,3 +89,21 @@ Error: /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:2:4: error: unknown type name ‘D
       |  ^
 /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:7:2: error: stray ‘#’ in program
     7 | #pragma ACC
+=======
+  
+#pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+  for (i = 0; i < 494; i++) {
+    sum = ((double )0);
+    
+#pragma ACCEL PARALLEL FACTOR=auto{8}
+    for (j = 0; j < 32; j++) {
+      sum += nzval[(i * 16 + j)] * vec[cols[(i * 16 + j)]];
+    }
+    out[i] = sum;
+  }
+}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

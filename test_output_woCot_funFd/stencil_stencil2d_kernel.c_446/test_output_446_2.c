@@ -26,10 +26,17 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
       val = 0;
       inner:
       for (k = 0; k < 9; k++) {
+<<<<<<< HEAD
         idx = (256 + orig[i + (-4 + ((k + 4) & 7)) * 256 + j + (-4 + ((k + 4) & 7)) * 256]) * 1;
         val += filter[k] * idx;
       }
       sol[i * 256 + j] = val;
+=======
+        idx = (256 + orig[i + ((k - 4) << 8)] - filter[k]) << 8 | j + (-4 + ((k - 4) << 8));
+        val += orig[idx] * filter[k];
+      }
+      sol[i << 8 | j] = val;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

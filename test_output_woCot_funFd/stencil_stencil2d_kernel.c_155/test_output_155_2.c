@@ -17,16 +17,26 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
   stencil_label1:
   for (r = 0; r < 128; r++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PIPELINE auto{}
+=======
+#pragma ACCEL PIPELINE auto{off}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     
 #pragma ACCEL TILE FACTOR=auto{1}
     
 #pragma ACCEL PARALLEL FACTOR=auto{62}
     stencil_label2:
     for (c = 0; c < 64; c++) {
+<<<<<<< HEAD
       temp = 0;
       
 #pragma ACCEL PIPELINE auto{off}
+=======
+      temp = ((int )0);
+      
+#pragma ACCEL PIPELINE auto{flatten}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       stencil_label3:
       for (k1 = 0; k1 < 3; k1++) {
         

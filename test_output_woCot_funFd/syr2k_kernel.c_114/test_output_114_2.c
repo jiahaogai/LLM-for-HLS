@@ -10,8 +10,13 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //TRANSB = 'N'
 // => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
 //A is NIxNK
+<<<<<<< HEAD
 //B is NIxNK
 //C is NKxNK
+=======
+//B is NKxNJ
+//C is NIxNJ
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma scop
   
@@ -22,7 +27,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 #pragma ACCEL PARALLEL FACTOR=auto{16}
   for (i = 0; i < 80; i++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{2}
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{80}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     for (j = 0; j < 80; j++) {
       C[i][j] *= beta;
     }
@@ -34,8 +43,13 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 #pragma ACCEL PARALLEL FACTOR=auto{2}
     for (k = 0; k < 60; k++) {
       
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{80}
       for (j = 0; j < 80; j++) {
+=======
+#pragma ACCEL PARALLEL reduction=C FACTOR=auto{8}
+      for (j = 0; j < 60; j++) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
         C[i][j] += alpha * A[i][k] * B[k][j];
       }
     }

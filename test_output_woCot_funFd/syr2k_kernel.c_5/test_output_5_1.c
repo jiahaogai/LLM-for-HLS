@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 #pragma ACCEL kernel
+=======
+Code: #pragma ACCEL kernel
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
 {
   int i;
   int j;
   int k;
+<<<<<<< HEAD
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'N'
@@ -12,12 +17,16 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //A is NIxNK
 //B is NIxNK
 //C is NKxNK
+=======
+//#pragma scop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
 #pragma ACCEL TILE FACTOR=auto{80}
   
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+<<<<<<< HEAD
   for (i = 0; i < 80; i++) {
     
 #pragma ACCEL PARALLEL FACTOR=auto{4}
@@ -38,4 +47,19 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
       }
     }
   }
+=======
+  for (j = 0; j < 80; j++) {
+    
+#pragma ACCEL PARALLEL reduction=C FACTOR=auto{4}
+    for (k = 0; k < 60; k++) {
+      C[j][j] += alpha * A[j][k] * B[j][k];
+    }
+    
+#pragma ACCEL PARALLEL reduction=C FACTOR=auto{4}
+    for (k = 0; k < 60; k++) {
+      C[j][j] += beta * A[j][k] * B[k][j];
+    }
+  }
+//#pragma endscop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

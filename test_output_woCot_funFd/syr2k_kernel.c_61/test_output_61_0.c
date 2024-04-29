@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 - The middle loop is not automatically pipelined or flattened for better performance.
 - The middle loop is tiled with a factor of 80, meaning it is divided into 80 smaller parts.
 - Loop iterations of the middle loop are executed concurrently, overlapping computation.
+=======
+- The middle loop is not automatically pipelined to maximize performance.
+- The middle loop is kept whole without division into smaller parts to maintain data locality.
+- Loop iterations of the middle loop are executed sequentially, ensuring correct dependencies are observed.
+- The inner loop is not automatically pipelined to minimize area.
+- The inner loop is kept whole without division into smaller parts to maintain data locality.
+- Loop iterations of the inner loop are executed in parallel, maximizing FP performance.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 
 #pragma ACCEL kernel
 
@@ -12,10 +21,17 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'N'
+<<<<<<< HEAD
 // => Form C := alpha*A*B**T + beta*C,
 //A is ROW MAJOR
 //B is ROW MAJOR
 //C is ROW MAJOR
+=======
+// => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
+//A is NIxNK
+//B is NKxNJ
+//C is NIxNJ
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
@@ -24,7 +40,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 #pragma ACCEL PARALLEL FACTOR=auto{1}
   for (i = 0; i < 80; i++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{16}
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{70}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     for (j = 0; j < 80; j++) {
       C[i][j] *= beta;
     }

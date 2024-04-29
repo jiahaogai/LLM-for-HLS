@@ -28,7 +28,11 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
       j_col = (j - 1 + 256) % 256;
       int sum = 0;
       
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=sum FACTOR=auto{16}
+=======
+#pragma ACCEL PARALLEL reduction=sum FACTOR=auto{2}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       inner:
       for (k = 0; k < 9; k++) {
         k_col = (k - 1 + 256) % 256;

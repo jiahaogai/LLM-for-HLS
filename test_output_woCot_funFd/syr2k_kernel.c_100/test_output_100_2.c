@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 - `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Execute the following operation in parallel.
 
+=======
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 #pragma ACCEL kernel
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
@@ -10,10 +13,17 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'N'
+<<<<<<< HEAD
 // => Form C := alpha*A*B**T + beta*C,
 //A is NIxNK
 //B is NIxNK
 //C is NKxNK
+=======
+// => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
+//A is NIxNK
+//B is NKxNJ
+//C is NIxNJ
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma scop
   
@@ -36,7 +46,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 #pragma ACCEL PARALLEL FACTOR=auto{2}
     for (k = 0; k < 60; k++) {
       
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{4}
+=======
+#pragma ACCEL PARALLEL reduction=C FACTOR=auto{32}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       for (j = 0; j < 80; j++) {
         C[i][j] += alpha * A[i][k] * B[k][j];
       }

@@ -1,27 +1,40 @@
 #pragma ACCEL kernel
 
+<<<<<<< HEAD
 void stencil(double orig[400][400],double sol[400][400],double filter[4][4])
+=======
+void stencil(double orig[25][25],double sol[25][25],double filter[25][25])
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 {
   int i;
   int j;
   int k;
+<<<<<<< HEAD
   int k_col;
   int k_row;
   double sum;
+=======
+//#pragma scop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{1}
   
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+<<<<<<< HEAD
   outer:
   for (i = 1; i < 400 - 1; i++) {
+=======
+  for (i = 1; i < 25 - 1; i++) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     
 #pragma ACCEL PIPELINE auto{off}
     
 #pragma ACCEL TILE FACTOR=auto{1}
     
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+<<<<<<< HEAD
     middle:
     for (j = 1; j < 400 - 1; j++) {
       sum = 0.0;
@@ -38,4 +51,11 @@ void stencil(double orig[400][400],double sol[400][400],double filter[4][4])
       sol[i][j] = sum;
     }
   }
+=======
+    for (j = 1; j < 25 - 1; j++) {
+      sol[i][j] = ((filter[0][0] * orig[i - 1][j - 1]) + (filter[0][1] * orig[i - 1][j]) + (filter[0][2] * orig[i - 1][j + 1]) + (filter[1][0] * orig[i][j - 1]) + (filter[1][1] * orig[i][j]) + (filter[1][2] * orig[i][j + 1]) + (filter[2][0] * orig[i + 1][j - 1]) + (filter[2][1] * orig[i + 1][j]) + (filter[2][2] * orig[i + 1][j + 1])) / 121.0;
+    }
+  }
+//#pragma endscop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

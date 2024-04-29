@@ -17,6 +17,7 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
 #pragma ACCEL PARALLEL FACTOR=auto{1}
   for (i = 0; i < 60; i++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=A FACTOR=auto{1}
     for (j = 0; j < 60; j++) {
       A[i][j] *= alpha;
@@ -33,6 +34,17 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
       for (j = 0; j < 80; j++) {
         B[i][j] += A[i][k] * B[k][j];
       }
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{16}
+    for (j = 0; j < 80; j++) {
+      double sum = 0.0;
+      
+#pragma ACCEL PARALLEL reduction=sum FACTOR=auto{6}
+      for (k = 0; k < 60; ++k) {
+        sum += alpha * A[i][k] * B[k][j];
+      }
+      B[i][j] = sum;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 //#pragma endscop

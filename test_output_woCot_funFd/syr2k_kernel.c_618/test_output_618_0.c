@@ -8,10 +8,17 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'N'
+<<<<<<< HEAD
 // => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
 //A is NIxNK
 //B is NIxNK
 //C is NKxNK
+=======
+// => Form C := alpha*A*B**T + beta*C,
+//A is ROW MAJOR
+//B is ROW MAJOR
+//C is ROW MAJOR
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   

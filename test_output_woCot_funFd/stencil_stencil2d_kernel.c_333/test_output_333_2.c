@@ -25,6 +25,7 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
 #pragma ACCEL TILE FACTOR=auto{1}
     
 #pragma ACCEL PARALLEL FACTOR=auto{32}
+<<<<<<< HEAD
     middle:
     for (j = 0; j < 256; j++) {
       row = i * 256;
@@ -46,6 +47,28 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
         val = orig[idx] + ((filter[0] * sol[idx - 1]) + (filter[1] * sol[idx + 1]) + (filter[2] * (sol[idx - 2] + sol[idx + 2])) + (filter[3] * (sol[idx - 3] + sol[idx + 3])) + (filter[4] * (sol[idx - 4] + sol[idx + 4])) + (filter[5] * (sol[idx - 5] + sol[idx + 5])) + (filter[6] * (sol[idx - 6] + sol[idx + 6])) + (filter[7] * (sol[idx - 7] + sol[idx + 7])) + (filter[8] * (sol[idx - 8] + sol[idx + 8])));
         sol[idx] = val;
       }
+=======
+    inner:
+    for (j = 0; j < 256; j++) {
+      row = i - 4;
+      col = j - 4;
+      flatten_row = row & 7;
+      flatten_col = col & 7;
+      idx = (row >> 3) * 8 + (col >> 3);
+      val = 0;
+      
+#pragma ACCEL PARALLEL reduction=val FACTOR=auto{1}
+      filter:
+      for (k = 0; k < 9; k++) {
+        int cur_row;
+        int cur_col;
+        cur_row = flatten_row + ((k >> 3) & 7);
+        cur_col = flatten_col + (k & 7);
+        int idx_src = (cur_row << 3) + cur_col;
+        val += orig[idx_src] * filter[k];
+      }
+      sol[idx] = val;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

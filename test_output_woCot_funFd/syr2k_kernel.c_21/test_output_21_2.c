@@ -8,7 +8,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'N'
+<<<<<<< HEAD
 // => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
+=======
+// => Form C := alpha*A*B**T + beta*C,
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 //A is NIxNK
 //B is NKxNJ
 //C is NIxNJ
@@ -22,7 +26,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 #pragma ACCEL PARALLEL FACTOR=auto{10}
   for (i = 0; i < 80; i++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{14}
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{16}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     for (j = 0; j < 80; j++) {
       C[i][j] *= beta;
     }
@@ -35,8 +43,13 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
     for (k = 0; k < 60; k++) {
       
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{70}
+<<<<<<< HEAD
       for (j = 0; j < 80; j++) {
         C[i][j] += alpha * A[i][k] * B[k][j];
+=======
+      for (j = 0; j < 60; j++) {
+        C[i][j + 60] += alpha * A[i][k] * B[k][j];
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       }
     }
   }

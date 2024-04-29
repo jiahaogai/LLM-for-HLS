@@ -11,6 +11,7 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
 // => Form B := alpha*A**T*B,
 //A is TRANSA = 'T'
 // => A is N-by-N
+<<<<<<< HEAD
 //B is N-by-N
 // => B is overwritten with alpha*A**T*B
 // => DIMB = N
@@ -23,6 +24,11 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
 // => DIMB = M
   
 #pragma scop
+=======
+//B is TRANSB = 'N'
+// => B is N-by-80
+// => therefore, A is N-by-80
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -31,6 +37,7 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
 #pragma ACCEL PARALLEL FACTOR=auto{16}
   for (i = 0; i < 60; i++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{32}
     for (j = 0; j < 80; j++) {
       double sum = 0.0;
@@ -44,4 +51,17 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
   }
   
 #pragma endscop
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{4}
+    for (j = 0; j < 60; j++) {
+      double sum = 0.0;
+      
+#pragma ACCEL PARALLEL reduction=sum FACTOR=auto{60}
+      for (k = 0; k < 80; ++k) {
+        sum += alpha * A[i][k] * B[k][j];
+      }
+      A[i][j] = sum;
+    }
+  }
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

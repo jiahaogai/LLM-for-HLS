@@ -12,9 +12,15 @@
   for (i = 0; i < 494; i++) {
     out[i] = ((double )0);
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=out FACTOR=auto{1}
     for (j = 0; j < 16; j++) {
       out[i] += nzval[i * 16 + j] * vec[cols[i * 16 + j]];
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+    for (j = 0; j < 16; j++) {
+      out[i] += nzval[cols[i + (j << 8)]] * vec[j];
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

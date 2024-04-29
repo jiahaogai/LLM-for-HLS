@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 #pragma ACCEL kernel
+=======
+Code: #pragma ACCEL kernel
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 
 void stencil(int orig[8192],int sol[8192],int filter[9])
 {
   int i;
   int j;
   int k;
+<<<<<<< HEAD
   int idx;
   int val;
+=======
+  int k_col;
+  int i_col;
+  int j_col;
+  int t;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -23,6 +34,7 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
 #pragma ACCEL PARALLEL FACTOR=auto{62}
     middle:
     for (j = 0; j < 256; j++) {
+<<<<<<< HEAD
       val = 0;
       inner:
       for (k = 0; k < 9; k++) {
@@ -30,6 +42,19 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
         val += orig[idx] * filter[k];
       }
       sol[i * 256 + j] = val;
+=======
+      t = 0;
+      
+#pragma ACCEL PARALLEL reduction=t FACTOR=auto{64}
+      inner:
+      for (k = 0; k < 9; k++) {
+        k_col = ((8 * i) + (k / 32));
+        i_col = ((k % 32) + 1);
+        j_col = ((8 * j) + (k % 32));
+        t += filter[k] * orig[k_col * 256 + i_col] * orig[j_col * 256 + j];
+      }
+      sol[i * 256 + j] = t;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

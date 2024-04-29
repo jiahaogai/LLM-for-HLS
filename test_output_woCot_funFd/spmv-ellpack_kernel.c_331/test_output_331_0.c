@@ -15,8 +15,13 @@ void ellpack(double nzval[4940],int cols[4940],double vec[49],double out[49])
   for (i = 0; i < 49; i++) {
     sum = ((double )0);
     spmv_2:
+<<<<<<< HEAD
     for (j = 0; j < 4; j++) {
       sum += nzval[i * 4 + j] * vec[cols[i * 4 + j]];
+=======
+    for (j = 0; j < 494; j++) {
+      sum += nzval[i * 494 + j] * vec[cols[i * 494 + j]];
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
     out[i] = sum;
   }

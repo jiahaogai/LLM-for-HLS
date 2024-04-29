@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #pragma ACCEL kernel
+=======
+Code: #pragma ACCEL kernel
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
 {
@@ -10,10 +14,15 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //TRANSB = 'N'
 // => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
 //A is NIxNK
+<<<<<<< HEAD
 //B is NIxNK
 //C is NKxNK
   
 #pragma scop
+=======
+//B is NKxNJ
+//C is NIxNJ
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -40,6 +49,9 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
       }
     }
   }
+<<<<<<< HEAD
   
 #pragma endscop
+=======
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

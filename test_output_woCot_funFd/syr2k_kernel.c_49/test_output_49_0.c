@@ -27,7 +27,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
       C[k][j] *= beta;
     }
     
+<<<<<<< HEAD
 #pragma ACCEL PIPELINE auto{}
+=======
+#pragma ACCEL PIPELINE auto{off}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     
 #pragma ACCEL TILE FACTOR=auto{1}
     

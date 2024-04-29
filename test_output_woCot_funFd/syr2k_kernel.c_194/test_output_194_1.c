@@ -1,12 +1,17 @@
+<<<<<<< HEAD
 - `#pragma ACCEL PARALLEL reduction=C FACTOR=auto{1}`: Specifies that the loop is parallelized but that the specified C variable is a reduction variable and must be handled in a special way. The FACTOR annotation specifies the number of C's to be handled by a single process; in this case, one.
 
 #pragma ACCEL kernel
+=======
+Code: #pragma ACCEL kernel
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
 {
   int i;
   int j;
   int k;
+<<<<<<< HEAD
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'T'
@@ -14,6 +19,9 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //A is NIxNK
 //B is NKxNJ
 //C is NIxNJ
+=======
+//#pragma scop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -34,10 +42,18 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 #pragma ACCEL PARALLEL FACTOR=auto{60}
     for (k = 0; k < 60; k++) {
       
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{1}
+=======
+#pragma ACCEL PARALLEL reduction=C FACTOR=auto{50}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       for (j = 0; j < 80; j++) {
         C[i][j] += alpha * A[i][k] * B[k][j];
       }
     }
   }
+<<<<<<< HEAD
+=======
+//#pragma endscop
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

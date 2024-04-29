@@ -1,5 +1,13 @@
 Code: #pragma ACCEL kernel
 
+<<<<<<< HEAD
+=======
+#pragma ACCEL PIPELINE auto{off}
+
+#pragma ACCEL TILE FACTOR=auto{1}
+
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 void kernel_syrk(double alpha,double beta,double C[80][80],double A[80][60])
 {
   int i;
@@ -7,18 +15,29 @@ void kernel_syrk(double alpha,double beta,double C[80][80],double A[80][60])
   int k;
 //#pragma scop
   
+<<<<<<< HEAD
 #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{1}
+=======
+#pragma ACCEL PIPELINE auto{flatten}
+  
+#pragma ACCEL TILE FACTOR=auto{80}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PARALLEL FACTOR=auto{1}
   for (i = 0; i < 80; i++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{4}
+=======
+#pragma ACCEL PARALLEL reduction=C FACTOR=auto{1}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     for (j = 0; j < 80; j++) {
       C[i][j] *= beta;
     }
     
+<<<<<<< HEAD
 #pragma ACCEL PIPELINE auto{flatten}
     
 #pragma ACCEL TILE FACTOR=auto{80}
@@ -27,6 +46,16 @@ void kernel_syrk(double alpha,double beta,double C[80][80],double A[80][60])
     for (k = 0; k < 60; k++) {
       
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{1}
+=======
+#pragma ACCEL PIPELINE auto{off}
+    
+#pragma ACCEL TILE FACTOR=auto{1}
+    
+#pragma ACCEL PARALLEL FACTOR=auto{4}
+    for (k = 0; k < 60; k++) {
+      
+#pragma ACCEL PARALLEL reduction=C FACTOR=auto{8}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       for (j = 0; j < 80; j++) {
         C[i][j] += alpha * A[i][k] * A[j][k];
       }

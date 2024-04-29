@@ -1,16 +1,25 @@
 #pragma ACCEL kernel
 
+<<<<<<< HEAD
 void stencil(int orig[400][400],int sol[400][400],int filter[4][4])
+=======
+void stencil(int orig[400][400],int sol[400][400],int filter[9])
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 {
   int i;
   int j;
   int k;
+<<<<<<< HEAD
 //#pragma scop
+=======
+  int t;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{1}
   
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{1}
   for (i = 1; i < 400 - 1; i++) {
     
@@ -24,4 +33,18 @@ void stencil(int orig[400][400],int sol[400][400],int filter[4][4])
     }
   }
 //#pragma endscop
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{126}
+  for (i = 1; i < 400 - 1; i++) {
+    
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+    for (j = 1; j < 400 - 1; j++) {
+      t = 0;
+      for (k = 0; k < 9; k++) {
+        t += filter[k] * orig[i + dx[k]][j + dy[k]];
+      }
+      sol[i][j] = t;
+    }
+  }
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 }

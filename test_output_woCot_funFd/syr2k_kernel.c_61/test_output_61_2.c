@@ -1,6 +1,7 @@
 - The middle loop is not automatically pipelined to maximize performance.
 - The middle loop is kept whole without division into smaller parts to maintain data locality.
 - Loop iterations of the middle loop are executed sequentially, ensuring correct dependencies are observed.
+<<<<<<< HEAD
 - The middle loop is automatically unrolled by a factor of 2.
 - The inner loop of the middle loop is not automatically pipelined to maximize performance.
 - The inner loop of the middle loop is kept whole without division into smaller parts to maintain data locality.
@@ -13,6 +14,11 @@
 - PIPELINE auto{off} is used to control code generation for the inner loop.
 - The parallelization factor of 1 is used to control code generation for the inner loop.
 
+=======
+- The inner loop is automatically unrolled to a factor of 2 for better performance.
+- The inner loop is tiled with a factor of 80, meaning it is divided into 80 smaller parts.
+- Loop iterations of the inner loop are executed in parallel, leveraging the Tile Level Parallelism (TLP) property.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 #pragma ACCEL kernel
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
@@ -24,9 +30,15 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //TRANSA = 'N'
 //TRANSB = 'N'
 // => Form C := alpha*A*B**T + beta*C,
+<<<<<<< HEAD
 //A is ROWMAJOR
 //B is ROWMAJOR
 //C is ROWMAJOR
+=======
+//A is NIxNK
+//B is NKxNJ
+//C is NIxNJ
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{off}
   
@@ -35,7 +47,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 #pragma ACCEL PARALLEL FACTOR=auto{1}
   for (i = 0; i < 80; i++) {
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{70}
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     for (j = 0; j < 80; j++) {
       C[i][j] *= beta;
     }

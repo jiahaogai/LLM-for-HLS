@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Code: #pragma ACCEL kernel
 
 void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
@@ -51,3 +52,7 @@ Error: /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:2:4: error: unknown type name ‘A
     5 |    Automatically determine the type of the parameter `cols` to optimize the performance of system-level transformations.
       |                                                           ^
 /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:7:4: error: stray ‘
+=======
+Error: 
+Please check the code and try again.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

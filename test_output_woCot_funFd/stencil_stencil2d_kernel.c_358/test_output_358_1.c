@@ -6,10 +6,14 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
   int j;
   int k;
   int idx;
+<<<<<<< HEAD
   int idy;
   int ftidx;
   int ftidy;
   int t;
+=======
+  int s;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -26,6 +30,7 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
 #pragma ACCEL PARALLEL FACTOR=auto{4}
     middle:
     for (j = 0; j < 256; j++) {
+<<<<<<< HEAD
       t = 0;
       inner:
       for (k = 0; k < 9; k++) {
@@ -38,6 +43,15 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
         }
       }
       sol[i * 256 + j] = t;
+=======
+      s = 0.0;
+      inner:
+      for (k = 0; k < 9; k++) {
+        idx = (i + ((0 - (4 + 1)) + (k / 3))) * 256 + j + ((k % 3) - 1);
+        s += ((double )filter[k]) * orig[idx];
+      }
+      sol[i * 256 + j] = s;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

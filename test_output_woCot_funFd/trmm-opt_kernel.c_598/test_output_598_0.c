@@ -23,7 +23,11 @@ void kernel_trmm(double alpha,double A[60][60],double B[60][80])
       double sum = 0.0;
       
 #pragma ACCEL PARALLEL reduction=sum FACTOR=auto{60}
+<<<<<<< HEAD
       for (k = 0; k < 60; k++) {
+=======
+      for (k = 0; k < 60; ++k) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
         sum += alpha * A[i][k] * B[k][j];
       }
       B[i][j] = sum;

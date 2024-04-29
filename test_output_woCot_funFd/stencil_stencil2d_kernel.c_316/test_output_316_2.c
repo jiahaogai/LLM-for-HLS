@@ -1,14 +1,20 @@
+<<<<<<< HEAD
 Code: #pragma ACCEL PIPELINE auto{}
 
 #pragma ACCEL TILE FACTOR=auto{1}
 
 #pragma ACCEL PARALLEL FACTOR=auto{126}
+=======
+Code: #pragma ACCEL kernel
+
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 void stencil(int orig[8192],int sol[8192],int filter[9])
 {
   int i;
   int j;
   int k;
   int idx;
+<<<<<<< HEAD
   int center = 45;
   
 #pragma ACCEL PIPELINE auto{flatten}
@@ -62,3 +68,31 @@ Code: #pragma ACCEL PIPELINE auto{}
 void stencil(int orig[8192],int sol[8192],int filter[9])
 {
   int i;
+=======
+  int val;
+  
+#pragma ACCEL PIPELINE auto{}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{126}
+  for (i = 1; i < 32 + 1; i++) {
+    
+#pragma ACCEL PIPELINE auto{flatten}
+    
+#pragma ACCEL TILE FACTOR=auto{1}
+    
+#pragma ACCEL PARALLEL FACTOR=auto{4}
+    for (j = 1; j < 32 + 1; j++) {
+      idx = i * (32 + 2) + j;
+      val = 0;
+      
+#pragma ACCEL PARALLEL reduction=val FACTOR=auto{1}
+      for (k = 0; k < 9; k++) {
+        val += filter[k] * orig[idx + (k - 4) - 1];
+      }
+      sol[idx] = val;
+    }
+  }
+}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

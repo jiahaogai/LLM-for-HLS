@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Code: #pragma ACCEL kernel
 
 void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],double B[80][60])
@@ -61,3 +62,14 @@ Error: /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:2:1: error: stray ‘##’ in prog
     3 | - `#pragma ACCEL PARALLEL FACTOR=auto{10}`: Execute loop iterations concurrently in groups of 10
       |    ^
 /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:3:42: error: stray ‘##’ in program
+=======
+Code: #pragma ACCEL PIPELINE auto{}`: Automatically pipeline the loop
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep the loop whole, without dividing it into smaller parts
+- `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Execute loop iterations concurrently in groups of 4
+- `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Execute loop iterations concurrently in groups of 4
+
+For the outer loop:
+- `#pragma ACCEL PIPELINE auto{}`: Automatically pipeline the loop
+- `#pragma ACCEL TILE FACTOR=auto{1}`: Keep the loop whole, without dividing it into smaller parts
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: Execute loop iterations concurrently in groups of 1
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

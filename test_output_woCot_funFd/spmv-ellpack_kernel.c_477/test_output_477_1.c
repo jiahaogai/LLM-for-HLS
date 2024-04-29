@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma ACCEL PIPELINE auto{flatten}
 
 #pragma ACCEL TILE FACTOR=auto{2}
@@ -13,10 +14,34 @@ void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
     out[i] = ((double )0);
   }
   
+=======
 #pragma ACCEL PIPELINE auto{off}
   
 #pragma ACCEL TILE FACTOR=auto{1}
   
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+Error: 
+Please check the code and try again.
+#pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+Error: 
+Please check the code and try again.
+#pragma ACCEL PIPELINE auto{flatten}
+  
+#pragma ACCEL TILE FACTOR=auto{2}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{4}
+Error: 
+Please check the code and try again.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
+#pragma ACCEL PIPELINE auto{off}
+  
+#pragma ACCEL TILE FACTOR=auto{1}
+  
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{4}
   for (j = 0; j < 64; j++) {
     
@@ -26,3 +51,15 @@ void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
     }
   }
 }
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{1}
+Error: 
+Please check the code and try again.
+#pragma ACCEL PIPELINE auto{flatten}
+  
+#pragma ACCEL TILE FACTOR=auto{2}
+  
+#pragma ACCEL PARALLEL FACTOR=auto{4}
+Error: 
+Please check the code and try again.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

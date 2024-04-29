@@ -27,6 +27,7 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
     for (j = 0; j < 256; j++) {
       t = 0;
       
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=t FACTOR=auto{2}
       inner:
       for (k = 0; k < 9; k++) {
@@ -36,6 +37,17 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
         t += filter[k] * orig[j_col];
       }
       sol[j + (256 * i)] = t;
+=======
+#pragma ACCEL PARALLEL reduction=t FACTOR=auto{1}
+      inner:
+      for (k = 0; k < 9; k++) {
+        k_col = ((k + i) < 256 ? (k + i) : (k + i - 256));
+        i_col = ((k_col + 1) < 256 ? (k_col + 1) : (k_col + 1 - 256));
+        j_col = ((k + j) < 256 ? (k + j) : (k + j - 256));
+        t += filter[k] * orig[i_col * 256 + j_col];
+      }
+      sol[i * 256 + j] = t;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

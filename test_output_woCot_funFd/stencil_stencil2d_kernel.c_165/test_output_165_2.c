@@ -27,6 +27,7 @@ void stencil(double orig[8192],double sol[8192],double filter[9])
       sum = 0.0;
       inner:
       for (k_col = 0; k_col < 9; k_col++) {
+<<<<<<< HEAD
         k_row = i + (-4 + k_col);
         if ((((i < 4) || (i > 71)) || (k_row < 0)) || (k_row > 71)) {
           k = 0;
@@ -46,6 +47,22 @@ void stencil(double orig[8192],double sol[8192],double filter[9])
 #endif
       }
       sol[((64 * i) + j)] = sum;
+=======
+        k_row = i - 4 + k_col;
+        if ((((i < 4) || (i > 7)) || ((j < 4) || (j > 7))) || ((k_row < 0) || (k_row > 7))) {
+          k = 0;
+        }
+         else {
+          k = k_row * 64 + j - 4;
+        }
+#pragma ACCEL PARALLEL reduction=sum FACTOR=auto{16}
+	middle_inner:
+	for (k_row = 0; k_row < 9; k_row++) {
+          sum += filter[k_row] * orig[k + k_row];
+	}
+      }
+      sol[i * 64 + j] = sum;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

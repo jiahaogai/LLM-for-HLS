@@ -13,7 +13,11 @@ void ellpack(double nzval[4940],int cols[4940],double vec[49],double out[49])
   for (i = 0; i < 49; i++) {
     out[i] = 0.0;
     
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL reduction=out FACTOR=auto{1}
+=======
+#pragma ACCEL PARALLEL reduction=out FACTOR=auto{16}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     for (j = cols[i]; j < cols[i + 1]; j++) {
       out[i] += nzval[j] * vec[cols[j]];
     }

@@ -27,6 +27,7 @@ void stencil(double orig[8192],double sol[8192],double filter[9])
       sum = 0.0;
       inner:
       for (k = 0; k < 9; k++) {
+<<<<<<< HEAD
         k_col = i + (k % 3) - 1;
         k_row = j + (k / 3) - 1;
         if ((((k_col >= 0) && (k_col < 8)) && ((k_row >= 0) && (k_row < 8))) && ((k_col != i) || (k_row != j))) {
@@ -34,6 +35,13 @@ void stencil(double orig[8192],double sol[8192],double filter[9])
         }
       }
       sol[i * 8 + j] = sum;
+=======
+        k_col = ((8 * i) + (k % 8));
+        k_row = ((8 * j) + (k / 8));
+        sum += filter[k] * orig[k_row * 8 + k_col];
+      }
+      sol[(i * 8) + j] = sum;
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 }

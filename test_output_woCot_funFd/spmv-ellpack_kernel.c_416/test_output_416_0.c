@@ -18,8 +18,13 @@ void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
     sum = ((double )0);
     ellpack_2:
     for (j = 0; j < 10; j++) {
+<<<<<<< HEAD
       nzval_tmp = nzval[i * 10 + j];
       cols_tmp = cols[i * 10 + j];
+=======
+      nzval_tmp = nzval[((i * 10 + j) + 0)];
+      cols_tmp = cols[((i * 10 + j) + 0)];
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       sum += nzval_tmp * vec[cols_tmp];
     }
     out[i] = sum;

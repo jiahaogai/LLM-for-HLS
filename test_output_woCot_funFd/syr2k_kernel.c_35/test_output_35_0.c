@@ -8,7 +8,11 @@ void kernel_syr2k(double alpha,double beta,double C[4096],double A[4096],double 
 //BLAS PARAMS
 //TRANSA = 'N'
 //TRANSB = 'N'
+<<<<<<< HEAD
 // => Form C := alpha*A*B**T + beta*C,
+=======
+// => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 //A is NIxNK
 //B is NKxNJ
 //C is NIxNJ

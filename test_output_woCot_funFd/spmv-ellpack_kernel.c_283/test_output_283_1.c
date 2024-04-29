@@ -4,13 +4,17 @@ void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
 {
   int i;
   int j;
+<<<<<<< HEAD
   double sum;
+=======
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
 #pragma ACCEL TILE FACTOR=auto{494}
   
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+<<<<<<< HEAD
   loop_ellpack_0:
 /* Standardize from: for(i = 0; i < 494; i++) {*/
   i:
@@ -23,5 +27,14 @@ void ellpack(double nzval[4940],int cols[4940],double vec[494],double out[494])
       sum += nzval[i * 16 + j] * vec[cols[i * 16 + j]];
     }
     out[i] = sum;
+=======
+  for (i = 0; i < 494; i++) {
+    out[i] = ((double )0);
+    
+#pragma ACCEL PARALLEL FACTOR=auto{32}
+    for (j = 0; j < 16; j++) {
+      out[i] += nzval[i * 16 + j] * vec[cols[i * 16 + j]];
+    }
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   }
 }

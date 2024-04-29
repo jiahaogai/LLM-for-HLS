@@ -11,7 +11,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
   
 #pragma ACCEL TILE FACTOR=auto{1}
   
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{4}
+=======
+#pragma ACCEL PARALLEL FACTOR=auto{2}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   for (i = 0; i < 80; i++) {
     
 #pragma ACCEL PARALLEL reduction=C FACTOR=auto{8}

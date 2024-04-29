@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Code: #pragma ACCEL PIPELINE auto{off}` - Do not automatically pipeline this loop.
 6. `#pragma ACCEL TILE FACTOR=auto{1}` - Keep this loop whole, without dividing it into smaller parts.
 7. `#pragma ACCEL PARALLEL FACTOR=auto{80}` - Execute loop iterations sequentially, not concurrently.
@@ -65,3 +66,7 @@ Error: /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:2:1: error: expected identifier or
 /root/autodl-tmp/LLM/LLM-for-HLS/tmp.c:3:4: error: stray ‘`’ in program
     3 | 7. `#pragma ACCEL PARALLEL FACTOR=auto{80}` - Execute loop iterations sequentially, not concurrently.
       |    ^
+=======
+Error: 
+Please check the code and try again.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a

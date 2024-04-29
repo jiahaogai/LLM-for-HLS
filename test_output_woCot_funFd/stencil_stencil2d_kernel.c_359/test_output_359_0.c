@@ -24,7 +24,11 @@ void stencil(int orig[8192],int sol[8192],int filter[9])
     for (j = 1; j < 8191; j++) {
       tmp = 0;
       
+<<<<<<< HEAD
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+=======
+#pragma ACCEL PARALLEL reduction = tmp FACTOR=auto{1}
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
       inner:
       for (k = -45; k <= 45; k++) {
         tmp += filter[k + 45] * orig[i + k * 8192];

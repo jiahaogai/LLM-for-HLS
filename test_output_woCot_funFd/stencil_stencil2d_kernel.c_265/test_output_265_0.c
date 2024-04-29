@@ -19,7 +19,11 @@ void stencil(double A[25][25],double B[25][25])
     
 #pragma ACCEL PARALLEL FACTOR=auto{4}
     for (c = 0; c < 25; c++) {
+<<<<<<< HEAD
       B[r][c] = 0.2 * A[r][c] + 0.8 * (B[r - 1][c - 1] + B[r - 1][c] + B[r - 1][c + 1] + B[r][c - 1] + B[r][c + 1] + B[r + 1][c - 1] + B[r + 1][c] + B[r + 1][c + 1]);
+=======
+      B[r][c] = 0.2 * A[r][c] + 0.8 * (B[r - 1][c] + B[r + 1][c] + B[r][c - 1] + B[r][c + 1]);
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
     }
   }
 //#pragma endscop

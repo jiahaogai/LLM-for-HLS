@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 - `#pragma ACCEL PARALLEL FACTOR=auto{4}`: Scale the work done in the j loop (or its sub-loops) by a factor of four. This is done to adjust for the fact that there is additional work being done in the k loop that needs to be accounted for, but which is not included in the j loop (or its sub-loops).
+=======
+- `#pragma ACCEL PARALLEL FACTOR=auto{1}`: The C matrix has already been shown to be large enough to not need to be tiled in row or column. Setting a tile FACTOR of 1 here would have no impact on the behavior of the program.
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
 
 #pragma ACCEL kernel
 
@@ -12,8 +16,13 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
 //TRANSB = 'N'
 // => Form C := alpha*A*B**T + alpha*B*A**T + beta*C,
 //A is NIxNK
+<<<<<<< HEAD
 //B is NKxNJ
 //C is NKxNJ
+=======
+//B is NIxNK
+//C is NKxNK
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
   
 #pragma ACCEL PIPELINE auto{}
   
@@ -35,7 +44,11 @@ void kernel_syr2k(double alpha,double beta,double C[80][80],double A[80][60],dou
     for (k = 0; k < 60; k++) {
       
 #pragma ACCEL PARALLEL FACTOR=auto{1}
+<<<<<<< HEAD
       for (j = 0; j < 60; j++) {
+=======
+      for (j = 0; j < 80; j++) {
+>>>>>>> aacacb78d0cb9c57b2f479851f61349c1954fe7a
         C[i][j] += alpha * A[i][k] * B[k][j];
       }
     }
