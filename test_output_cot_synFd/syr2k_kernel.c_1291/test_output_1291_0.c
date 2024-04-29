@@ -1,0 +1,1 @@
+#pragma ACCEL PARAMS A=80 B=60
