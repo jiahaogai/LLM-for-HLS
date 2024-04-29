@@ -1,0 +1,1 @@
+If the problem persists, please contact us at support@accelize.com

@@ -1,0 +1,1 @@
+#pragma ACCEL PARAMS alpha=auto{1.0} beta=auto{0.0}
