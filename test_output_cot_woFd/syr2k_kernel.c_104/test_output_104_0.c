@@ -1,0 +1,1 @@
+`accel kernel_syr2k`
