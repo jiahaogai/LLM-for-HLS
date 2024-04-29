@@ -1,1 +1,0 @@
-- `#pragma ACCEL PIPELINE auto{__PIPE__L3}`: Set the specified loop (the inner loop of the middle loop of `kernel_symm`) to be processed in the pipeline with the specified ID ( `__PIPE__L3`).

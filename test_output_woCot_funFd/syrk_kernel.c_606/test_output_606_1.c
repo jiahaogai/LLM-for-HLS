@@ -1,1 +1,0 @@
-- `#pragma ACCEL TILE FACTOR=auto{2}`: Tile the inner loop into 2 smaller tiles that are executed sequentially.

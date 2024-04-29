@@ -1,1 +1,0 @@
-- `#pragma ACCEL PARALLEL reduction=C FACTOR=auto{16}`: Specifies that C should be updated concurrently.
