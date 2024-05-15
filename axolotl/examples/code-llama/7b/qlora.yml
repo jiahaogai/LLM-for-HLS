@@ -1,4 +1,4 @@
-base_model: codellama/CodeLlama-7b-hf
+base_model: /root/autodl-tmp/LLM-for-HLS/axolotl/models/CodeLlama-7b-hf
 model_type: LlamaForCausalLM
 tokenizer_type: CodeLlamaTokenizer
 is_llama_derived_model: true
@@ -8,15 +8,15 @@ load_in_4bit: false
 strict: false
 
 datasets:
-  - path: /root/autodl-tmp/LLM/LLM-for-HLS/data
+  - path: ../data/gpt35/processed_sources_train_c.jsonl
     type: alpaca
-    name: ["processed_sources_train_c.jsonl", "processed_sources_test_c.jsonl"]
-dataset_prepared_path: /root/autodl-tmp/LLM/LLM-for-HLS/last_run_prepared
+    
+dataset_prepared_path: ../last_run_prepared
 val_set_size: 0.2
 output_dir: ./qlora-out
-test_dataset_path: /root/autodl-tmp/LLM/LLM-for-HLS/data/gpt35/processed_sources_test_c.jsonl
+test_dataset_path: ./data/gpt35/processed_sources_test_c.jsonl
 pass_num: 5
-predicted_data_dir: /root/autodl-tmp/LLM/LLM-for-HLS/test_output
+predicted_data_dir: ../test_output
 
 adapter: qlora
 lora_model_dir:
@@ -58,10 +58,10 @@ resume_from_checkpoint:
 local_rank:
 logging_steps: 100
 xformers_attention:
-flash_attention: true
+flash_attention: false
 
 warmup_steps: 100
-evals_per_epoch: 4
+evals_per_epoch: 100 
 saves_per_epoch: 1
 debug:
 deepspeed:
