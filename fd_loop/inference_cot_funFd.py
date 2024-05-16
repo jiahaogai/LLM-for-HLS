@@ -12,16 +12,16 @@ from vllm.sampling_params import SamplingParams
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
-# if os.path.exists("/root/autodl-tmp/LLM-for-HLS/qlora-out/merged"):
-#     print("find merged model")
-# else:
-#     print("not find merged model")
-#     os.system(
-#         "python3 -m axolotl.cli.merge_lora axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='/root/autodl-tmp/LLM-for-HLS/axolotl/qlora-out'")
+if os.path.exists("./qlora-out/merged"):
+    print("find merged model")
+else:
+    print("not find merged model")
+    os.system(
+        "python3 -m axolotl.cli.merge_lora axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='./axolotl/qlora-out'")
 
 tensor_parallel_size = torch.cuda.device_count()
 # model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
-model_path = "/root/autodl-tmp/LLM/LLM-for-HLS/qlora-out/merged"
+model_path = "./qlora-out/merged"
 device_count = torch.cuda.device_count()
 llm = LLM(model_path, tensor_parallel_size=device_count, gpu_memory_utilization=0.5)
 use_chain_of_thought = True
@@ -122,11 +122,11 @@ def infer_with_syntax_check(args, data):
                 # predicted_text = predicted_text.replace(input_text, '').replace('</s>', '').strip()
                 predicted_text = predicted_text[predicted_text.find('#'):]
 
-                with open('/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c', 'w') as f:
+                with open('./tmp.c', 'w') as f:
                     f.write(predicted_text)
-                truth_file = "/root/autodl-tmp/LLM/LLM-for-HLS/data/sources/" + source_file
+                truth_file = "./data/sources/" + source_file
                 # 然后加载测试文件
-                test_case_file = "/root/autodl-tmp/LLM/LLM-for-HLS/functionality_data/" + source_file.split('.c')[0] + "_test.c"
+                test_case_file = "./functionality_data/" + source_file.split('.c')[0] + "_test.c"
                 assert os.path.exists(test_case_file), f"Test case file {test_case_file} does not exist"
                 # print(test_case_file)
 
@@ -135,8 +135,8 @@ def infer_with_syntax_check(args, data):
                 flag, test_output = compile_and_run(test_case_file, truth_file)
                 # print(test_output)
                 assert flag, f"Compilation failed for {test_case_file} and {truth_file}, with {test_output}"
-                flag, message = compile_and_run(test_case_file, '/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
-                # flag, message = check_c_file_syntax(f'/root/autodl-tmp/LLM/LLM-for-HLS/tmp.c')
+                flag, message = compile_and_run(test_case_file, './tmp.c')
+                # flag, message = check_c_file_syntax(f'./tmp.c')
                 if not flag or message != test_output:
                     input_text = "The following code is the result of prompt: " + input_text + "\nCode: " + predicted_text + "\nError: " + message + \
                                          "\nPlease check the code and try again."
@@ -158,7 +158,7 @@ def infer_with_syntax_check(args, data):
 
 if __name__ == "__main__":
     # 打开YAML文件
-    with open('/root/autodl-tmp/LLM/LLM-for-HLS/axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
+    with open('./axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
         # 加载YAML内容
         args = yaml.safe_load(file)
     args['pass_num'] = 3

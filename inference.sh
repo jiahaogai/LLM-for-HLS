@@ -1,19 +1,26 @@
 #!/bin/bash
 
-# check if the number of arguments is 1
-if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 [-syntax_feedback | -functionality_feedback]"
-  exit 1
-fi
+export TOKENIZERS_PARALLELISM=true
 
 case "$1" in
   -syntax_feedback)
-    python fd_loop/fd_loop.py
+    if [ "$2" = "-cot" ]; then
+        python fd_loop/inference_cot_synFd.py
+    else
+        python fd_loop/inference_woCot_synFd.py
+    fi
     ;;
   -functionality_feedback)
-    python fd_loop/fd_loop_fc.py
+    if [ "$2" = "-cot" ]; then
+        python fd_loop/inference_cot_funFd.py
+    else
+        python fd_loop/inference_woCot_funFd.py
+    fi
+    ;;
+  -cot)
+    python vllm_inference_cot.py
     ;;
   *)
-    python vllm_inference.py
+    python vllm_inference_without_cot.py
     ;;
 esac

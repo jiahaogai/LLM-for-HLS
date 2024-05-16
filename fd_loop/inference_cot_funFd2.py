@@ -12,7 +12,7 @@ from vllm.sampling_params import SamplingParams
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
-model_path = "/root/autodl-tmp/LLM/LLM-for-HLS/qlora-out/merged"
+model_path = "./qlora-out/merged"
 device_count = torch.cuda.device_count()
 llm = LLM(model_path, tensor_parallel_size=device_count, gpu_memory_utilization=0.5)
 
@@ -57,7 +57,7 @@ def infer_with_syntax_check(args, data):
                     with tempfile.NamedTemporaryFile(suffix='.c', delete=False) as tmp:
                         tmp.write(predicted_text.encode())
                         tmp.flush()
-                        test_case_file = f"/root/autodl-tmp/LLM/LLM-for-HLS/functionality_data/{source_file.split('.c')[0]}_test.c"
+                        test_case_file = f"./functionality_data/{source_file.split('.c')[0]}_test.c"
                         flag, stdout, stderr = compile_and_run(test_case_file, tmp.name)
                         if not flag or stderr:
                             if feedback_loop_count == max_feedback_loops:
@@ -74,7 +74,7 @@ def infer_with_syntax_check(args, data):
             feedback_loop_count += 1
 
 if __name__ == "__main__":
-    with open('/root/autodl-tmp/LLM/LLM-for-HLS/axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
+    with open('./axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
         args = yaml.safe_load(file)
     args['generate_params'] = SamplingParams(
         n=1, 

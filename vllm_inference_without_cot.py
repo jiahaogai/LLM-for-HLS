@@ -40,7 +40,7 @@ generate_params = SamplingParams(
 bs = 4
 tensor_parallel_size = torch.cuda.device_count()
 # model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
-model_path = "/root/autodl-tmp/LLM/LLM-for-HLS/qlora-out/merged"
+model_path = "./qlora-out/merged"
 llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1, dtype="float16")
 use_chain_of_thought = False
 chain_of_thought_prompt = """
