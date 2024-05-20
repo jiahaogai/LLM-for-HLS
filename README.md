@@ -14,6 +14,7 @@
 LLM-for-HLS is an open-source project focused on leveraging Large Language Models (LLMs) for High-Level Synthesis (HLS). This project aims to construct datasets, fine-tune LLMs, and evaluate their performance in generating HLS code based on natural language instructions. It also involves some techniques like feedback loop and chain of thoughts.
 
 ## Project structure
+```
 LLM-for-HLS/
 ├── axolotl                  # Directory for the Axolotl project
 ├── data                     # Directory containing data files used by the project
@@ -26,7 +27,7 @@ LLM-for-HLS/
 ├── README.md                # Markdown file providing an overview and general information about the project
 ├── requirements.txt         # Text file listing dependencies needed by the project
 └── train.sh                 # Shell script for training models or running training processes
-
+```
 
 ## Dataset construction
 We have filtered the original labeled design benchmark dataset according to the 'perf' value to construct a dataset optimized for HLS code generation. Later, we extended the orignial dataset by adding tens of new source file after thoroughly inspecting the repository https://github.com/UT-LCA/ML4Accel-Dataset/tree/main/fpga_ml_dataset/HLS_dataset.
