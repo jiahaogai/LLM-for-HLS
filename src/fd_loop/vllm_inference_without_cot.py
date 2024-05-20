@@ -4,20 +4,19 @@ import torch
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
-if os.path.exists("../../qlora-out/merged"):
-    print("find merged model")
-else:
-    print("not find merged model")
-    os.system(
-        "python3 -m axolotl.cli.merge_lora ../../axolotl/examples/code-llama/7b/qlora.yml --lora_model_dir='../../axolotl/qlora-out'")
 
 from vllm import LLM
 from vllm.sampling_params import SamplingParams
 import yaml
 import json
 
+# Get the absolute path of the current file
+current_file_path = os.path.abspath(__file__)
+
+# Get the directory of the current file
+current_dir = os.path.dirname(current_file_path)
 # 打开YAML文件
-with open('../../axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
+with open(os.path.join(current_dir,'../../axolotl/examples/code-llama/7b/qlora.yml'), 'r') as file:
     # 加载YAML内容
     args = yaml.safe_load(file)
 
@@ -41,6 +40,8 @@ bs = 4
 tensor_parallel_size = torch.cuda.device_count()
 # model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
 model_path = "../../qlora-out/merged"
+# Combine the current directory with the relative path to get the new absolute path
+model_path = os.path.abspath(os.path.join(current_dir, model_path))
 llm = LLM(model_path, tensor_parallel_size=1, gpu_memory_utilization=1, dtype="float16")
 use_chain_of_thought = False
 chain_of_thought_prompt = """

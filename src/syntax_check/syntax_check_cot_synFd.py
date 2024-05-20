@@ -19,7 +19,7 @@ async def check_c_file_syntax_async(file_path):
 
 
 async def main():
-    folder_path = "../../test_output_cot_synFd"  
+    folder_path = "../../outputs/test_output_cot_synFd"  
     pass_num = len(os.listdir(os.path.join(folder_path, os.listdir(folder_path)[0])))
     print(f"Pass num: {pass_num}")
     c_file_dirs = [file_dir for file_dir in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, file_dir)) and

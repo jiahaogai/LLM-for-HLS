@@ -12,7 +12,15 @@ from vllm.sampling_params import SamplingParams
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
-if os.path.exists("../../qlora-out/merged"):
+# Get the absolute path of the current file
+current_file_path = os.path.abspath(__file__)
+
+# Get the directory of the current file
+current_dir = os.path.dirname(current_file_path)
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+
+if os.path.exists(os.path.join(current_dir,"../../qlora-out/merged")):
     print("find merged model")
 else:
     print("not find merged model")
@@ -21,7 +29,13 @@ else:
 
 tensor_parallel_size = torch.cuda.device_count()
 # model_path = "/root/autodl-tmp/pretrain_models/deepseek-coder-6.7b-instruct"
+
+print(current_file_path)
+# Relative path
 model_path = "../../qlora-out/merged"
+
+# Combine the current directory with the relative path to get the new absolute path
+model_path = os.path.abspath(os.path.join(current_dir, model_path))
 device_count = torch.cuda.device_count()
 llm = LLM(model_path, tensor_parallel_size=device_count, gpu_memory_utilization=0.5)
 use_chain_of_thought = True
@@ -144,7 +158,7 @@ def infer_with_syntax_check(args, data):
         torch.cuda.empty_cache()
 
 if __name__ == "__main__":
-    with open('../../axolotl/examples/code-llama/7b/qlora.yml', 'r') as file:
+    with open(os.path.join(current_dir,'../../axolotl/examples/code-llama/7b/qlora.yml'), 'r') as file:
         args = yaml.safe_load(file)
     args['pass_num'] = 3
 
