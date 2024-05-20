@@ -12,22 +12,22 @@ args="$1_$2"
 # 根据参数调用不同的Python脚本
 case "$args" in
   -woCot_-woFd)
-    python syntax_check_woCot_woFd.py
+    python ./src/syntax_check/syntax_check_woCot_woFd.py
     ;;
   -woCot_-synFd)
-    python syntax_check_woCot_synFd.py
+    python ./src/syntax_check/syntax_check_woCot_synFd.py
     ;;
   -woCot_-funFd)
-    python syntax_check_woCot_funFd.py
+    python ./src/syntax_check/syntax_check_woCot_funFd.py
     ;;
   -cot_-woFd)
-    python syntax_check_cot_woFd.py
+    python ./src/syntax_check/syntax_check_cot_woFd.py
     ;;
   -cot_-synFd)
-    python syntax_check_cot_synFd.py
+    python ./src/syntax_check/syntax_check_cot_synFd.py
     ;;
   -cot_-funFd)
-    python syntax_check_cot_funFd.py
+    python ./src/syntax_check/syntax_check_cot_funFd.py
     ;;
   *)
     echo "Invalid argument combination: $1 $2"
