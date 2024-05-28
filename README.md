@@ -9,6 +9,10 @@
 ╚══════╝╚══════╝╚═╝     ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝
 ```
 
+## Framework demo
+![demo](https://github.com/jiahaogai/LLM-for-HLS/assets/69957934/91a44a61-ee06-40e5-b33c-3fdeb58cab1c)
+
+https://github.com/jiahaogai/LLM-for-HLS/blob/newBranch/demo.gif
 
 
 LLM-for-HLS is an open-source project focused on leveraging Large Language Models (LLMs) for High-Level Synthesis (HLS). This project aims to construct datasets, fine-tune LLMs, and evaluate their performance in generating HLS code based on natural language instructions. It also involves some techniques like feedback loop and chain of thoughts.
