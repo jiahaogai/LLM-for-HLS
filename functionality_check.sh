@@ -12,22 +12,22 @@ args="$1_$2"
 # Call different Python scripts based on the parameters
 case "$args" in
   -woCot_-woFd)
-    python ./src/func_checkfunctionality_check_woCot_woFd.py
+    python ./src/func_check/functionality_check_woCot_woFd.py
     ;;
   -woCot_-synFd)
-    python ./src/func_checkfunctionality_check_woCot_synFd.py
+    python ./src/func_check/functionality_check_woCot_synFd.py
     ;;
   -woCot_-funFd)
-    python ./src/func_checkfunctionality_check_woCot_funFd.py
+    python ./src/func_check/functionality_check_woCot_funFd.py
     ;;
   -cot_-woFd)
-    python ./src/func_checkfunctionality_check_cot_woFd.py
+    python ./src/func_check/functionality_check_cot_woFd.py
     ;;
   -cot_-synFd)
-    python ./src/func_checkfunctionality_check_cot_synFd.py
+    python ./src/func_check/functionality_check_cot_synFd.py
     ;;
   -cot_-funFd)
-    python ./src/func_checkfunctionality_check_cot_funFd.py
+    python ./src/func_check/functionality_check_cot_funFd.py
     ;;
   *)
     echo "Invalid argument combination: $1 $2"
