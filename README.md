@@ -111,7 +111,17 @@ The script takes one or two command-line arguments:
 * `inference.sh -cot`: Run CoT inference
 * `inference.sh`: Run inference without CoT (default behavior)
 
-## syntax check
-- python syntax_check.py
-- sh check.sh -syntax_feedback
-- sh check.sh -functionality_feedback
+## syntax/functionality check
+- First argument:
+  - `-woCot`: Without cot
+  - `-cot`: With cot
+
+- Second argument:
+  - `-woFd`: Without any feedback loop
+  - `-synFd`: With syntax feedback loop
+  - `-funFd`: With functionality feedback loop
+
+### Example Commands
+```bash
+./syntax_check.sh -woCot -woFd
+./functionality_check.sh -cot -synFd
